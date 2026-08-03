@@ -1,0 +1,55 @@
+name: "✍️ Publier un nouvel article"
+description: "Écrivez votre article ici : il sera publié automatiquement sur le site en 2 minutes."
+title: "Le titre de votre article ici"
+labels: ["article"]
+body:
+  - type: markdown
+    attributes:
+      value: "**Bonjour Jacqueline !** Remplacez le titre ci-dessus par le titre de votre article, remplissez les cases, puis cliquez le bouton vert en bas. Votre article sera en ligne 2 minutes plus tard. 🌱"
+  - type: input
+    id: resume
+    attributes:
+      label: "Résumé"
+      description: "2 phrases maximum : c'est le texte affiché sur la carte de la page Blog."
+      placeholder: "Ex : Pourquoi les paniers d'objets fascinent les bébés, et comment composer le vôtre."
+    validations:
+      required: true
+  - type: input
+    id: categorie
+    attributes:
+      label: "Catégorie"
+      description: "Le petit badge sur la carte : Éveil, Bébé, Émotions, Formations, Aménagement…"
+      placeholder: "Éveil"
+    validations:
+      required: true
+  - type: dropdown
+    id: couleur
+    attributes:
+      label: "Couleur du badge"
+      options:
+        - "Vert sauge"
+        - "Ocre doré"
+        - "Rose"
+      default: 0
+  - type: textarea
+    id: photo
+    attributes:
+      label: "Photo de l'article"
+      description: "Glissez-déposez votre photo directement dans cette case (elle s'affichera sur la carte et en grand en haut de l'article)."
+      placeholder: "Glissez votre photo ici…"
+    validations:
+      required: true
+  - type: input
+    id: alt
+    attributes:
+      label: "Description de la photo"
+      description: "Une phrase qui décrit la photo (aide Google à référencer l'article)."
+      placeholder: "Ex : Bébé explorant un panier d'objets en bois"
+  - type: textarea
+    id: texte
+    attributes:
+      label: "Texte de l'article"
+      description: "Écrivez librement. Pour un sous-titre de section, mettez #### devant (ex : #### Pourquoi ça marche)."
+      placeholder: "Votre article…"
+    validations:
+      required: true

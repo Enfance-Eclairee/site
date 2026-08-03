@@ -1,0 +1,43 @@
+name: Publier un article depuis le formulaire
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publier:
+    if: contains(github.event.issue.labels.*.name, 'article')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Créer l'article depuis le formulaire
+        id: article
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/publier_article.py
+      - name: Enregistrer dans le site
+        run: |
+          git config user.name "Enfance Éclairée (robot)"
+          git config user.email "jacqueline.schmitt.1965@gmail.com"
+          git add content/blog img/uploads || true
+          git commit -m "Nouvel article : ${{ steps.article.outputs.slug }}" || echo "rien à committer"
+          git push
+      - name: Construire le site
+        run: python3 build_site.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment
+      - name: Prévenir Jacqueline sur l'issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --body "🌱 **Votre article est en ligne !** → https://enfance-eclairee.fr/${{ steps.article.outputs.slug }} — il apparaît aussi sur https://enfance-eclairee.fr/blog. Merci Jacqueline !"
+          gh issue close ${{ github.event.issue.number }}
