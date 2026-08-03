@@ -306,6 +306,7 @@ def art_page(a):
     <div class="art-author"><img src="__IMG_AVATAR__" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Éducatrice Montessori · {date_fr(a["date"])}</small></span></div>
   </div>
 </header>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"Blog","item":"{BASE_URL}/blog"}},{{"@type":"ListItem","position":3,"name":"{esc(a["title"])}"}}]}}</script>
 <section class="sect" style="padding:56px 0 30px">
   <div class="wrap art-page">
     {md_to_html(a["body"])}
@@ -741,6 +742,8 @@ print("Site généré dans", OUT)
 
 
 # ---------- images : copie des fichiers ----------
+if (ROOT / "favicon.svg").exists():
+    shutil.copy(ROOT / "favicon.svg", OUT / "favicon.svg")
 for d in ("img/opt", "img/uploads"):
     src = ROOT / d
     if src.exists():
