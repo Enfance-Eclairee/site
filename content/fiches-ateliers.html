@@ -1,0 +1,475 @@
+<style>
+.cat-link{background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;line-height:inherit}
+.cat-card .cat-link:hover{color:var(--olive);text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--amande)}
+.cat-card .cat-link:after{content:' →';color:var(--sauge);opacity:0;transition:opacity .2s}
+.cat-card li:hover .cat-link:after{opacity:1}
+.f-table .cat-link{font-weight:700}
+.f-table .cat-link:hover{color:var(--olive);text-decoration:underline;text-decoration-color:var(--amande)}
+</style>
+<div class="art-overlay" id="ficheOverlay">
+  <div class="art-panel">
+    <button class="art-close" id="ficheClose" aria-label="Fermer">✕</button>
+    <div id="ficheContent"></div>
+  </div>
+</div>
+<template id="fiche-vie-pratique">
+  <span class="blog-tag">Vie pratique &amp; sensorielle</span>
+  <h2>La vie pratique, dès 18 mois</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Verser, transvaser, boutonner, laver la salade, prendre soin de son espace : la vie pratique est la porte d'entrée de la pédagogie Montessori. Derrière ces gestes du quotidien, l'enfant construit sa concentration, sa coordination et une immense fierté : « je suis capable de faire seul ».</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les plateaux de vie pratique : versés, transvasements, gestes précis</li>
+      <li>Le soin de soi : s'habiller, se laver les mains, se moucher</li>
+      <li>Le soin de l'environnement : nettoyer, ranger, jardiner</li>
+      <li>Comment présenter une activité : gestes lents, ordre, autonomie</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-vie-sensorielle">
+  <span class="blog-tag">Vie pratique &amp; sensorielle</span>
+  <h2>La vie sensorielle, petits et grands</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Avant de comprendre avec sa tête, l'enfant comprend avec ses sens. Le matériel sensoriel Montessori l'aide à classer, comparer et nommer ce qu'il perçoit : les tailles, les couleurs, les sons, les textures, les odeurs. Un travail fondamental qui prépare tous les apprentissages abstraits.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Le matériel sensoriel emblématique : tour rose, cylindres, boîtes à sons</li>
+      <li>Affiner chaque sens, un par un : vue, toucher, ouïe, odorat, goût</li>
+      <li>Les paires, les gradations et le vocabulaire précis</li>
+      <li>Adapter les propositions sensorielles à chaque âge</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-bac-manipulation">
+  <span class="blog-tag">Vie pratique &amp; sensorielle</span>
+  <h2>Le bac à manipulation et les diverses manipulations</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Un grand bac, du riz, de la semoule ou des graines, quelques contenants : le bac à manipulation est un univers d'exploration à lui tout seul. L'enfant y plonge les mains, verse, trie, cache, retrouve — et développe sans s'en douter sa motricité fine et sa concentration.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Composer un bac : contenants, matières, thèmes de saison</li>
+      <li>Les règles de sécurité et d'hygiène selon les âges</li>
+      <li>Transvasements humides et secs, pinces et outils</li>
+      <li>Faire évoluer le bac au fil des intérêts de l'enfant</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-motricite-fine">
+  <span class="blog-tag">Vie pratique &amp; sensorielle</span>
+  <h2>La motricité fine et le développement de la main</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Maria Montessori appelait la main « l'instrument de l'intelligence ». De la préhension du nourrisson à la tenue du crayon, le développement de la main suit des étapes précises — et chaque étape peut être accompagnée par les bonnes propositions au bon moment.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les étapes de la préhension, de la naissance à 6 ans</li>
+      <li>Pinces, perles, encastrements : quelles activités à quel âge</li>
+      <li>Préparer la main à l'écriture, sans forcer</li>
+      <li>Ce que disent les neurosciences sur la main qui apprend</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-mud-kitchen">
+  <span class="blog-tag">Vie pratique &amp; sensorielle</span>
+  <h2>La mud kitchen</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Une cuisine de boue, dehors, avec de vrais ustensiles : la mud kitchen est l'une des activités nature préférées des enfants. On y touille, on y dose, on y invente des recettes de feuilles et de terre — et on y travaille la motricité, le langage et l'imaginaire, au grand air.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Installer une mud kitchen simple, même sur un petit espace</li>
+      <li>Ustensiles, matières naturelles et rangement accessible</li>
+      <li>Accompagner le jeu sans le diriger</li>
+      <li>Boue, saleté et lâcher-prise : pourquoi c'est bon pour l'enfant</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-etageres">
+  <span class="blog-tag t-ocre">Éveil &amp; apprentissages</span>
+  <h2>Les étagères créative, musicale et thématique</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Une étagère basse, quelques propositions choisies, et l'enfant choisit librement : c'est le principe de l'étagère Montessori. En version créative, musicale ou thématique, elle canalise la curiosité et invite à l'autonomie — à la maison comme en structure.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Composer une étagère : peu d'objets, bien choisis, à hauteur d'enfant</li>
+      <li>L'étagère créative : dessin, collage, modelage en libre accès</li>
+      <li>L'étagère musicale : premiers instruments et écoute</li>
+      <li>L'étagère thématique : explorer un sujet (saisons, animaux, couleurs…)</li>
+      <li>La rotation : quand et comment renouveler les propositions</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-apprentissage-son">
+  <span class="blog-tag t-ocre">Éveil &amp; apprentissages</span>
+  <h2>L'apprentissage du son, bien avant le solfège</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>L'oreille musicale se construit bien avant la première leçon de musique. Écouter, reconnaître, reproduire, jouer avec les sons du quotidien et les premiers instruments : autant d'expériences qui affinent l'écoute et préparent, plus tard, le langage et la musique.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les boîtes à sons et les jeux d'écoute Montessori</li>
+      <li>Premiers instruments : lesquels choisir, comment les présenter</li>
+      <li>Jeux de rythme et comptines pour affiner l'oreille</li>
+      <li>Le lien entre écoute musicale et développement du langage</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-trace">
+  <span class="blog-tag t-ocre">Éveil &amp; apprentissages</span>
+  <h2>L'apprentissage d'une trace, bien avant l'outil scripteur</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Avant d'écrire avec un crayon, l'enfant a besoin de laisser des traces : avec ses doigts dans la semoule, avec une éponge, avec de gros pinceaux. Cet atelier explore toutes les étapes qui mènent, naturellement et sans pression, vers le geste d'écriture.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Traces dans les matières : semoule, sable, peinture au doigt</li>
+      <li>Du mouvement large de l'épaule au geste fin du poignet</li>
+      <li>Les formes à dessin et les lettres rugueuses</li>
+      <li>Quand (et quand ne pas) proposer l'outil scripteur</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-ecriture-lecture">
+  <span class="blog-tag t-ocre">Éveil &amp; apprentissages</span>
+  <h2>Écriture et lecture</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>En pédagogie Montessori, l'écriture précède la lecture — et les deux s'apprennent par les sens : on touche les lettres rugueuses, on compose des mots avec l'alphabet mobile, on découvre que les sons s'assemblent. Une entrée dans l'écrit respectueuse du rythme de chaque enfant.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les jeux de sons : entendre les phonèmes dans les mots</li>
+      <li>Les lettres rugueuses : toucher pour mémoriser</li>
+      <li>L'alphabet mobile : écrire avant de savoir lire</li>
+      <li>Accompagner la lecture naissante sans pression scolaire</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-grands-verbes">
+  <span class="blog-tag t-ocre">Éveil &amp; apprentissages</span>
+  <h2>Les grands verbes Montessori</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Observer, absorber, répéter, se concentrer, faire seul : quelques grands verbes suffisent à résumer le développement de l'enfant selon Maria Montessori. Une formation repère, idéale pour poser les bases et comprendre ce qui se joue de 0 à 6 ans.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>L'esprit absorbant : comment l'enfant apprend sans effort</li>
+      <li>Les périodes sensibles et leurs fenêtres d'apprentissage</li>
+      <li>Observer avant d'intervenir : la posture de l'adulte</li>
+      <li>La répétition et la concentration, moteurs du développement</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-gestion-emotions">
+  <span class="blog-tag t-rose">Émotions &amp; développement</span>
+  <h2>La gestion des émotions</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Colères, pleurs, refus : avant 5 ans, l'enfant est littéralement débordé par des émotions que son cerveau ne sait pas encore freiner. Cet atelier donne des clés concrètes, validées par les neurosciences, pour traverser les tempêtes sans s'épuiser — et sans culpabiliser.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Ce qui se passe dans le cerveau de l'enfant pendant une tempête</li>
+      <li>Les postures qui apaisent (et celles qui aggravent)</li>
+      <li>Mettre des mots sur les émotions : outils et rituels</li>
+      <li>Prendre soin de soi, parent ou professionnel</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-fidgets">
+  <span class="blog-tag t-rose">Émotions &amp; développement</span>
+  <h2>Les fidgets, pour retrouver le calme</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Certains enfants ont besoin de bouger, toucher, manipuler pour s'apaiser et se concentrer. Les fidgets — ces petits objets à malaxer, tourner, presser — sont de vrais outils de retour au calme, à condition de bien les choisir et de bien les utiliser.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>À quoi servent vraiment les fidgets (et pour quels enfants)</li>
+      <li>Choisir les bons objets selon l'âge et le besoin</li>
+      <li>Créer un coin calme avec des outils de régulation</li>
+      <li>Fidgets à fabriquer soi-même, à petit prix</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-jeu">
+  <span class="blog-tag t-rose">Émotions &amp; développement</span>
+  <h2>Le jeu</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Le jeu n'est pas une récréation entre deux apprentissages : c'est LE travail de l'enfant. Jeu libre, jeu symbolique, jeu de construction… chaque forme de jeu nourrit une facette de son développement. Encore faut-il lui laisser la place, le temps et le bon environnement.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les grandes familles de jeu et ce qu'elles développent</li>
+      <li>Jeu libre vs jeu dirigé : trouver l'équilibre</li>
+      <li>Le rôle de l'adulte : présent, mais pas envahissant</li>
+      <li>Aménager des espaces qui donnent envie de jouer</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-neurosciences">
+  <span class="blog-tag t-rose">Émotions &amp; développement</span>
+  <h2>La formation du cerveau de l'enfant et les neurosciences</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Plasticité cérébrale, périodes sensibles, rôle des émotions dans la mémoire : les neurosciences confirment aujourd'hui ce que Maria Montessori avait observé il y a un siècle. Une formation passionnante pour comprendre comment l'enfant apprend — et adapter nos pratiques.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Le cerveau de 0 à 6 ans : ce qui se construit, et quand</li>
+      <li>Pourquoi la manipulation construit mieux que l'écran</li>
+      <li>Stress, sécurité affective et apprentissages</li>
+      <li>Traduire ces découvertes en gestes concrets au quotidien</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-montessori-maison">
+  <span class="blog-tag">Montessori au quotidien</span>
+  <h2>Montessori à la maison (Montessori friendly)</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Pas besoin d'une école ni d'un budget matériel pour vivre Montessori : l'essentiel se joue à la maison, dans les gestes du quotidien. Cet accompagnement vous aide à rendre votre intérieur « Montessori friendly », simplement, avec ce que vous avez déjà.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les principes Montessori traduits pour la maison</li>
+      <li>Pièce par pièce : cuisine, salle de bain, chambre</li>
+      <li>Impliquer l'enfant dans la vraie vie de la maison</li>
+      <li>Quoi acheter (très peu) et quoi éviter</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">Chez vous ou dans votre structure : Jacqueline se déplace, observe votre espace et construit ses conseils sur place, selon votre budget.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-loose-parts">
+  <span class="blog-tag">Montessori au quotidien</span>
+  <h2>Installer des loose parts chez soi</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Bouchons, galets, anneaux, chutes de bois : les « loose parts » sont des pièces libres que l'enfant combine à l'infini. Sans mode d'emploi, elles stimulent la créativité et la concentration bien mieux que la plupart des jouets. Apprenez à les choisir et à les installer.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Qu'est-ce qu'une loose part, et pourquoi ça fonctionne</li>
+      <li>Où les trouver : récup', nature, quotidien (budget quasi nul)</li>
+      <li>Les présenter joliment pour donner envie</li>
+      <li>Sécurité et adaptation selon l'âge de l'enfant</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">Chez vous ou dans votre structure : Jacqueline se déplace, observe votre espace et construit ses conseils sur place, selon votre budget.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-homestaging">
+  <span class="blog-tag">Montessori au quotidien</span>
+  <h2>Le homestaging Montessori</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Le + Enfance Éclairée : Jacqueline vient chez vous ou dans votre structure, observe votre espace et vous conseille pièce par pièce. Quels meubles choisir, quels jouets garder, quel aménagement pour favoriser l'autonomie et la motricité libre — selon votre intérieur et votre budget.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Visite et observation de votre espace, avec vous</li>
+      <li>Meubles : quoi garder, quoi adapter, quoi éviter d'acheter</li>
+      <li>Tri des jouets et organisation en libre accès</li>
+      <li>Un plan d'aménagement concret, adapté à votre budget</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">Chez vous ou dans votre structure : Jacqueline se déplace, observe votre espace et construit ses conseils sur place, selon votre budget.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-espace-autonomie">
+  <span class="blog-tag">Montessori au quotidien</span>
+  <h2>Aménager un espace de jeu en autonomie et motricité libre</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Un tapis ferme, un miroir à sa hauteur, des paniers accessibles : quelques choix simples suffisent pour qu'un bébé joue en autonomie et bouge librement, en sécurité. Cet atelier vous guide dans la création d'un espace adapté, de la naissance aux premiers pas et au-delà.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les fondamentaux de la motricité libre</li>
+      <li>L'espace type : sol, miroir, barre, rangements bas</li>
+      <li>Sécuriser sans sur-protéger</li>
+      <li>Faire évoluer l'espace à mesure que l'enfant grandit</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">Chez vous ou dans votre structure : Jacqueline se déplace, observe votre espace et construit ses conseils sur place, selon votre budget.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-nido-0-6">
+  <span class="blog-tag t-ocre">Les univers par âge</span>
+  <h2>Nido 0–6 mois et les activités</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Le nido — « nid » en italien — est l'univers Montessori des tout-petits. De la naissance à 6 mois, tout se joue dans la qualité de l'environnement : lumière, mobiles, premiers objets à saisir. Un atelier tout en douceur pour accompagner l'éveil des nourrissons.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>L'environnement du nourrisson : calme, contrastes, repères</li>
+      <li>Les mobiles Montessori et leur progression (Munari, Gobbi…)</li>
+      <li>Les premiers objets : hochets, anneaux, balles de préhension</li>
+      <li>Le topponcino et le portage des premières semaines</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-nido-6-18">
+  <span class="blog-tag t-ocre">Les univers par âge</span>
+  <h2>Nido 6–18 mois et les activités</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Entre 6 et 18 mois, l'enfant s'assoit, rampe, se hisse, marche : une explosion motrice ! Le nido évolue avec lui : paniers aux trésors, objets à encastrer, espaces à explorer en sécurité. Un atelier pour accompagner cette période intense sans la freiner.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Le panier aux trésors et l'exploration sensorielle</li>
+      <li>Encastrements, boîtes de permanence de l'objet</li>
+      <li>Aménager pour le quatre-pattes et les premiers pas</li>
+      <li>L'observation : proposer juste ce qu'il faut, au bon moment</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-nido-mobiles">
+  <span class="blog-tag t-ocre">Les univers par âge</span>
+  <h2>Nido avec mobiles et géométrie, 18 mois à 3 ans</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>Vers 18 mois, l'enfant affine son regard : il compare, trie, emboîte, aligne. Formes, couleurs et premières notions de géométrie entrent en scène — par les mains, jamais par la leçon. Un atelier pour nourrir cette soif d'ordre et de précision.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Tri et classement : couleurs, formes, tailles</li>
+      <li>Encastrements géométriques et puzzles premiers âges</li>
+      <li>La période sensible de l'ordre et comment l'accompagner</li>
+      <li>Préparer (déjà !) les futures notions mathématiques</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-communaute-enfantine">
+  <span class="blog-tag t-ocre">Les univers par âge</span>
+  <h2>Communauté enfantine, à partir de 18 mois</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>À partir de 18 mois, l'enfant découvre la vie de groupe : la communauté enfantine est ce petit monde à sa taille où l'on apprend à faire seul, mais ensemble. Autonomie, langage, vie pratique et premières règles sociales s'y construisent jour après jour.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Le rythme et les rituels d'une communauté enfantine</li>
+      <li>Vie pratique en groupe : mettre la table, ranger, s'entraider</li>
+      <li>L'explosion du langage et comment la nourrir</li>
+      <li>Gérer les conflits entre tout-petits avec bienveillance</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
+<template id="fiche-maison-enfantine">
+  <span class="blog-tag t-ocre">Les univers par âge</span>
+  <h2>Maison enfantine, de 3 à 6 ans</h2>
+  <span class="art-meta">Atelier &amp; formation · Par Jacqueline, éducatrice Montessori</span>
+  <div class="art-body">
+    <p>De 3 à 6 ans, l'esprit absorbant est à son apogée : c'est l'âge de la maison enfantine, où l'enfant raffine ses sens, entre dans l'écrit et les nombres, et développe son autonomie sociale. Un univers riche, que cet atelier vous apprend à faire vivre.</p>
+    <h4>Ce qu'on y explore</h4>
+    <ul>
+      <li>Les quatre aires : vie pratique, sensoriel, langage, mathématiques</li>
+      <li>Le matériel emblématique et ses présentations</li>
+      <li>L'autonomie et la responsabilité au quotidien</li>
+      <li>Préparer sereinement le passage vers l'école élémentaire</li>
+    </ul>
+    <div class="art-callout">
+      <h5>En pratique</h5>
+      <p style="margin:0;font-size:15px;color:#5C4F3E">En version professionnels de la petite enfance ou parents, dans les locaux Enfance Éclairée à Metz (mercredis et samedis, 9h30–17h00) ou directement dans votre structure.</p>
+    </div>
+    <p style="margin-top:20px"><a class="btn" href="contact.html">Demander le programme</a></p>
+  </div>
+</template>
