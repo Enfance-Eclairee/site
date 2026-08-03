@@ -197,10 +197,9 @@ def date_fr(iso):
     return f"Le {int(j)} {MOIS_FR[int(m)]} {a}"
 
 def b64img(path):
-    p = ROOT / path.lstrip("/")
-    ext = p.suffix.lower().lstrip(".")
-    mime = {"jpg": "jpeg", "jpeg": "jpeg", "png": "png", "webp": "webp", "gif": "gif", "svg": "svg+xml"}.get(ext, "jpeg")
-    return f"data:image/{mime};base64," + base64.b64encode(p.read_bytes()).decode()
+    """Renvoie le chemin de l'image (copiée dans site/) au lieu du base64 : pages légères, cache navigateur."""
+    return path
+
 
 def esc(t):
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -442,6 +441,7 @@ def theme_page(slug, title, cover, intro, items):
     <p style="color:#5C4F3E;max-width:620px;margin-top:6px">{intro}</p>
   </div>
 </header>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"Ateliers et formations","item":"{BASE_URL}/ateliers"}},{{"@type":"ListItem","position":3,"name":"{title}"}}]}}</script>
 <section class="sect" style="padding:56px 0 30px">
   <div class="wrap art-page">
     <div class="art-body">
@@ -498,7 +498,7 @@ QUI_CENTRE = """<section class="sect has-blobs" style="padding-top:0">
 # ---------- pages ----------
 META = {
     "index.html": (
-        "Enfance Éclairée · Montessori 0-6 ans à Metz",
+        "Enfance Éclairée Metz · Formations & Ateliers Montessori 0-6 ans",
         "Formations Montessori, ateliers 0-6 ans et accompagnement des parents à Metz, par Jacqueline, éducatrice Montessori depuis plus de 10 ans.",
     ),
     "methode.html": (
@@ -725,8 +725,7 @@ IMG = {
 for name, doc in pages.items():
     for ph, img in IMG.items():
         if ph in doc:
-            data = base64.b64encode((ROOT / "img/opt" / img).read_bytes()).decode()
-            doc = doc.replace(ph, f"data:image/jpeg;base64,{data}")
+            doc = doc.replace(ph, "img/opt/" + img)
     # URLs propres : index.html -> ./ , page.html -> page
     doc = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: 'href="./' + (m.group(1) or '') + '"', doc)
     doc = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: 'href="' + m.group(1) + (m.group(2) or '') + '"', doc)
@@ -740,6 +739,15 @@ if (ROOT / "admin").exists():
     print("admin/ copié dans site/admin/")
 print("Site généré dans", OUT)
 
+
+# ---------- images : copie des fichiers ----------
+for d in ("img/opt", "img/uploads"):
+    src = ROOT / d
+    if src.exists():
+        dst = OUT / d
+        shutil.rmtree(dst, ignore_errors=True)
+        shutil.copytree(src, dst)
+print("images copiées dans site/img/")
 
 # ---------- SEO : sitemap + robots ----------
 urls = [n for n in pages if n not in ("404.html",)]
