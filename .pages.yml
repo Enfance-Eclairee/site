@@ -1,53 +1,33 @@
-media:
-  input: img/uploads
-  output: img/uploads
+media: img/uploads
 
 content:
   - name: blog
     label: Articles du blog
     type: collection
     path: content/blog
-    view:
-      fields: [title, date, tag]
-      sort: [date, title]
-      default:
-        sort: date
-        order: desc
     fields:
       - name: title
         label: Titre de l'article
         type: string
-        required: true
       - name: description
-        label: Résumé (2 phrases max, affiché sur la carte)
+        label: Résumé (affiché sur la carte)
         type: text
-        required: true
       - name: date
         label: Date de publication
         type: date
-        required: true
       - name: tag
-        label: Catégorie (Éveil, Bébé, Émotions, Formations…)
+        label: Catégorie
         type: string
-        required: true
       - name: couleur
-        label: Couleur du badge
+        label: Couleur du badge (sauge, ocre ou rose)
         type: select
-        default: sauge
         options:
-          values:
-            - value: sauge
-              label: Vert sauge
-            - value: ocre
-              label: Ocre doré
-            - value: rose
-              label: Rose
+          values: [sauge, ocre, rose]
       - name: image
         label: Photo de l'article
         type: image
-        required: true
       - name: alt
-        label: Description de la photo (pour Google)
+        label: Description de la photo
         type: string
       - name: body
         label: Texte de l'article
