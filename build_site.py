@@ -5,7 +5,7 @@ import base64, pathlib, re, shutil
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "site"
-BASE_URL = "https://enfance-eclairee-toudoum.netlify.app"
+BASE_URL = "https://enfance-eclairee.fr"
 OUT.mkdir(exist_ok=True)
 
 html = (ROOT / "template.html").read_text()
