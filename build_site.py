@@ -567,7 +567,7 @@ def compose(page, *sections):
     h = re.sub(r'(<meta name="description" content=")[^"]*(">)', rf"\g<1>{desc}\g<2>", h)
     h = re.sub(r'(<meta property="og:title" content=")[^"]*(">)', rf"\g<1>{title}\g<2>", h)
     h = re.sub(r'(<meta property="og:description" content=")[^"]*(">)', rf"\g<1>{desc}\g<2>", h)
-    canon = BASE_URL + "/" + ("" if page == "index.html" else page)
+    canon = BASE_URL + "/" + ("" if page == "index.html" else page[:-5])
     h += f'<link rel="canonical" href="{canon}">'
     h += ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness",'
           '"name":"Enfance Éclairée","description":"Formations et ateliers Montessori 0-6 ans pour les professionnels de la petite enfance et les familles, à Metz.",'
@@ -727,6 +727,9 @@ for name, doc in pages.items():
         if ph in doc:
             data = base64.b64encode((ROOT / "img/opt" / img).read_bytes()).decode()
             doc = doc.replace(ph, f"data:image/jpeg;base64,{data}")
+    # URLs propres : index.html -> ./ , page.html -> page
+    doc = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: 'href="./' + (m.group(1) or '') + '"', doc)
+    doc = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: 'href="' + m.group(1) + (m.group(2) or '') + '"', doc)
     assert "__IMG_" not in doc, f"placeholder restant dans {name}"
     (OUT / name).write_text(doc)
     print(f"{name}: {len(doc)//1024} KB")
@@ -742,7 +745,7 @@ print("Site généré dans", OUT)
 urls = [n for n in pages if n not in ("404.html",)]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for n in sorted(urls):
-    loc = BASE_URL + "/" + ("" if n=="index.html" else n)
+    loc = BASE_URL + "/" + ("" if n=="index.html" else n[:-5])
     sm.append(f"  <url><loc>{loc}</loc></url>")
 sm.append("</urlset>")
 (OUT/"sitemap.xml").write_text("\n".join(sm))

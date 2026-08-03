@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Sitemap: https://enfance-eclairee.fr/sitemap.xml

@@ -1,0 +1,54 @@
+# Configuration Decap CMS — blog Enfance Éclairée
+#
+# ⚠️ AVANT LA MISE EN LIGNE : remplacer COMPTE-GITHUB/NOM-DU-REPO ci-dessous
+# par le vrai repo (ex. jacqueline-schmitt/enfance-eclairee), et configurer
+# l'OAuth GitHub dans Netlify (voir GUIDE_DEPLOIEMENT.md).
+#
+# Pour tester en local : décommenter "local_backend: true" puis lancer
+#   npx decap-server        (dans le dossier du projet, terminal 1)
+#   python3 -m http.server 8123 -d site   (terminal 2)
+# et ouvrir http://localhost:8123/admin/
+#
+# local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Nouvel article : {{slug}}"
+    update: "Article modifié : {{slug}}"
+    delete: "Article supprimé : {{slug}}"
+    uploadMedia: "Image ajoutée : {{path}}"
+
+locale: fr
+site_url: /
+logo_url: /img/opt/avatar.jpg
+
+media_folder: "img/uploads"
+public_folder: "img/uploads"
+
+collections:
+  - name: "blog"
+    label: "Articles du blog"
+    label_singular: "article"
+    folder: "content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Titre", name: "title", widget: "string", hint: "Le titre de l'article, affiché sur la carte et en haut de la page." }
+      - { label: "Résumé", name: "description", widget: "string", hint: "2 phrases maximum : c'est le texte affiché sur la carte de la page blog." }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false, hint: "Les articles sont affichés du plus récent au plus ancien." }
+      - { label: "Catégorie", name: "tag", widget: "string", hint: "Le petit badge sur la carte : Éveil, Bébé, Émotions, Formations…" }
+      - label: "Couleur du badge"
+        name: "couleur"
+        widget: "select"
+        default: "sauge"
+        options:
+          - { label: "Vert sauge", value: "sauge" }
+          - { label: "Ocre doré", value: "ocre" }
+          - { label: "Rose", value: "rose" }
+      - { label: "Photo de l'article", name: "image", widget: "image", hint: "La photo affichée sur la carte et en grand en haut de l'article." }
+      - { label: "Description de la photo", name: "alt", widget: "string", required: false, hint: "Une courte description de la photo (aide au référencement Google et à l'accessibilité)." }
+      - { label: "Texte de l'article", name: "body", widget: "markdown", hint: "Le contenu complet. Utilisez « Titre 4 » pour les sous-titres de sections." }
