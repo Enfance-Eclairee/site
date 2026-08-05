@@ -295,6 +295,20 @@ BLOG_SECTION = f'''<section class="sect has-blobs" id="blog" style="padding-top:
   </div>
 </section>'''
 
+def suggestions(a):
+    """3 articles a lire ensuite : meme categorie d abord."""
+    autres = [x for x in articles if x["slug"] != a["slug"]]
+    memes = [x for x in autres if x.get("tag") == a.get("tag")]
+    choix = (memes + [x for x in autres if x not in memes])[:3]
+    if not choix:
+        return ""
+    cartes = "\n".join(
+        '<a class="sugg-card" href="%s.html"><img src="%s" alt="%s"><span><b>%s</b><small>%s</small></span></a>'
+        % (x["slug"], b64img(x["image"]), esc(x.get("alt") or x["title"]), esc(x["title"]), esc(x["tag"]))
+        for x in choix)
+    return ('<div class="sugg"><h3 class="sugg-t">A lire ensuite <em>sur le blog</em></h3>'
+            '<div class="sugg-grid">' + cartes + '</div></div>')
+
 def art_page(a):
     return f"""<header class="art-hero">
   <img class="bg" src="{b64img(a["image"])}" alt="">
@@ -307,9 +321,11 @@ def art_page(a):
   </div>
 </header>
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"Blog","item":"{BASE_URL}/blog"}},{{"@type":"ListItem","position":3,"name":"{esc(a["title"])}"}}]}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"BlogPosting","headline":"{esc(a["title"])}","description":"{esc(a["description"])}","image":"{BASE_URL}/{a["image"]}","datePublished":"{a["date"]}","dateModified":"{a["date"]}","inLanguage":"fr-FR","author":{{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori","url":"{BASE_URL}/qui-sommes-nous"}},"publisher":{{"@type":"Organization","name":"Enfance Éclairée","logo":{{"@type":"ImageObject","url":"{BASE_URL}/favicon.svg"}}}},"mainEntityOfPage":"{BASE_URL}/{a["slug"]}","keywords":"{esc(a["tag"])}, Montessori, Metz, petite enfance"}}</script>
 <section class="sect" style="padding:56px 0 30px">
   <div class="wrap art-page">
     {md_to_html(a["body"])}
+    {suggestions(a)}
     <a class="art-back" href="blog.html">← Tous les articles</a>
   </div>
 </section>"""
@@ -577,6 +593,17 @@ def compose(page, *sections):
           '"founder":{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori"},'
           '"openingHours":["We 09:30-17:00","Sa 09:30-17:00"],'
           f'"url":"{BASE_URL}","areaServed":"Metz et alentours, Moselle"}}</script>')
+    if page == "ateliers.html":
+        h += ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service",'
+              '"serviceType":"Formations et ateliers Montessori 0-6 ans",'
+              '"provider":{"@type":"LocalBusiness","name":"Enfance Éclairée","telephone":"+33610089671"},'
+              '"areaServed":{"@type":"City","name":"Metz"},'
+              '"audience":{"@type":"Audience","audienceType":"Professionnels de la petite enfance, parents et futurs parents"},'
+              '"hasOfferCatalog":{"@type":"OfferCatalog","name":"Ateliers et formations Montessori","itemListElement":['
+              '{"@type":"Offer","itemOffered":{"@type":"Service","name":"Formations Montessori pour professionnels de la petite enfance"}},'
+              '{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers Montessori pour les enfants de 0 à 6 ans"}},'
+              '{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers parents et accompagnement à la parentalité"}},'
+              '{"@type":"Offer","itemOffered":{"@type":"Service","name":"Homestaging Montessori et aménagement d espaces"}}]}}</script>')
     if page == "index.html":
         h += '<script type="application/ld+json">' + (ROOT / "faq_schema.json").read_text(encoding="utf-8") + "</script>"
     content = "\n".join(sections)
@@ -727,6 +754,8 @@ for name, doc in pages.items():
     for ph, img in IMG.items():
         if ph in doc:
             doc = doc.replace(ph, "img/opt/" + img)
+    # images hors du premier écran : chargement différé (Core Web Vitals)
+    doc = re.sub(r'<img (?!class="bg")(?![^>]*loading=)([^>]*?)>', r'<img loading="lazy" decoding="async" \1>', doc)
     # URLs propres : index.html -> ./ , page.html -> page
     doc = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: 'href="./' + (m.group(1) or '') + '"', doc)
     doc = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: 'href="' + m.group(1) + (m.group(2) or '') + '"', doc)

@@ -350,6 +350,17 @@ nav .wrap{max-width:1280px}
 .art-back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--olive);margin-top:34px}
 .art-back:hover{color:var(--olive-deep)}
 
+.sugg{margin:52px 0 8px;padding-top:34px;border-top:1px solid rgba(110,82,58,.14)}
+.sugg-t{font-size:21px;margin-bottom:20px}
+.sugg-t em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.sugg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sugg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(110,82,58,.12);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.sugg-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px -22px rgba(74,56,38,.3)}
+.sugg-card img{width:100%;height:110px;object-fit:cover}
+.sugg-card span{padding:14px 16px 16px}
+.sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
+.sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -602,6 +613,7 @@ footer ul a:hover{color:#fff}
   .f-row{grid-template-columns:1fr}
   .t-card{padding:44px 26px 36px}
   .blog-card{width:100%}
+  .sugg-grid{grid-template-columns:1fr}
   .art-panel{padding:34px 24px}
   .f-grid{grid-template-columns:1fr}
   .hero{padding:48px 0 44px}
@@ -734,7 +746,7 @@ footer ul a:hover{color:#fff}
     </div>
     <div class="hero-visual reveal in d1">
       <div class="hero-blob"></div>
-      <div class="hero-photo"><img src="img/opt/hero.jpg" alt="Éducatrice Montessori avec un groupe d'enfants"></div>
+      <div class="hero-photo"><img loading="lazy" decoding="async" src="img/opt/hero.jpg" alt="Éducatrice Montessori avec un groupe d'enfants"></div>
       <svg class="hero-crest" viewBox="0 0 200 234"><use href="#crest"/></svg>
       <div class="float-card">
         <div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -805,7 +817,7 @@ footer ul a:hover{color:#fff}
     <div class="offer-grid">
       <article class="offer reveal">
         <div class="offer-img">
-          <img src="img/opt/formation.jpg" alt="Manipulation de matériel Montessori">
+          <img loading="lazy" decoding="async" src="img/opt/formation.jpg" alt="Manipulation de matériel Montessori">
           <span class="offer-badge">Pour les professionnels</span>
         </div>
         <div class="offer-body">
@@ -822,7 +834,7 @@ footer ul a:hover{color:#fff}
       </article>
       <article class="offer reveal d1">
         <div class="offer-img">
-          <img src="img/opt/atelier_structures.jpg" alt="Atelier créatif avec de jeunes enfants">
+          <img loading="lazy" decoding="async" src="img/opt/atelier_structures.jpg" alt="Atelier créatif avec de jeunes enfants">
           <span class="offer-badge">Pour les tout-petits</span>
         </div>
         <div class="offer-body">
@@ -839,7 +851,7 @@ footer ul a:hover{color:#fff}
       </article>
       <article class="offer reveal d2">
         <div class="offer-img">
-          <img src="img/opt/reel_sensoriel.jpg" alt="Exploration sensorielle avec un jeune enfant">
+          <img loading="lazy" decoding="async" src="img/opt/reel_sensoriel.jpg" alt="Exploration sensorielle avec un jeune enfant">
           <span class="offer-badge">Pour les parents</span>
         </div>
         <div class="offer-body">
@@ -878,7 +890,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel active" id="panel-nido">
-      <div class="age-photo"><img src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"><span class="age-tag">NIDO</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"><span class="age-tag">NIDO</span></div>
       <div class="age-content">
         <h3>Le Nido</h3>
         <span class="age-range">De la naissance à 18 mois</span>
@@ -892,7 +904,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel" id="panel-communaute">
-      <div class="age-photo"><img src="img/opt/communaute.jpg" alt="Jeunes enfants dessinant ensemble"><span class="age-tag">COMMUNAUTÉ ENFANTINE</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/communaute.jpg" alt="Jeunes enfants dessinant ensemble"><span class="age-tag">COMMUNAUTÉ ENFANTINE</span></div>
       <div class="age-content">
         <h3>La Communauté enfantine</h3>
         <span class="age-range">De 18 mois à 3 ans</span>
@@ -906,7 +918,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel" id="panel-maison">
-      <div class="age-photo"><img src="img/opt/maison.jpg" alt="Enfant construisant avec des blocs en bois"><span class="age-tag">MAISON ENFANTINE</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/maison.jpg" alt="Enfant construisant avec des blocs en bois"><span class="age-tag">MAISON ENFANTINE</span></div>
       <div class="age-content">
         <h3>La Maison enfantine</h3>
         <span class="age-range">De 3 à 6 ans</span>
@@ -931,10 +943,10 @@ footer ul a:hover{color:#fff}
       <p>Espaces aménagés, matériel choisi avec soin, nature invitée à la table des apprentissages.</p>
     </div>
     <div class="gal">
-      <figure class="reveal"><img src="img/opt/reel_nido.jpg" alt="Espace nido aménagé"><figcaption>Espace nido aménagé pour la motricité libre</figcaption></figure>
-      <figure class="reveal d1"><img src="img/opt/reel_nature.jpg" alt="Atelier mathématiques nature"><figcaption>Compter avec la nature : rondins et bâtons</figcaption></figure>
-      <figure class="reveal d2"><img src="img/opt/reel_etagere.jpg" alt="Étagère Montessori"><figcaption>Étagère d'inspiration Montessori en libre accès</figcaption></figure>
-      <figure class="reveal d3"><img src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel"><figcaption>Bac sensoriel d'exploration et de découverte</figcaption></figure>
+      <figure class="reveal"><img loading="lazy" decoding="async" src="img/opt/reel_nido.jpg" alt="Espace nido aménagé"><figcaption>Espace nido aménagé pour la motricité libre</figcaption></figure>
+      <figure class="reveal d1"><img loading="lazy" decoding="async" src="img/opt/reel_nature.jpg" alt="Atelier mathématiques nature"><figcaption>Compter avec la nature : rondins et bâtons</figcaption></figure>
+      <figure class="reveal d2"><img loading="lazy" decoding="async" src="img/opt/reel_etagere.jpg" alt="Étagère Montessori"><figcaption>Étagère d'inspiration Montessori en libre accès</figcaption></figure>
+      <figure class="reveal d3"><img loading="lazy" decoding="async" src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel"><figcaption>Bac sensoriel d'exploration et de découverte</figcaption></figure>
     </div>
     <p class="gal-note reveal">Photographies issues des ateliers et espaces réellement animés par Jacqueline.</p>
   </div>
@@ -948,7 +960,7 @@ footer ul a:hover{color:#fff}
   <div class="blob b-rose rev" style="width:300px;height:300px;left:-100px;bottom:6%"></div>
   <div class="wrap">
     <div class="about-visual reveal">
-      <div class="portrait"><img src="img/opt/jacqueline.jpg" alt="Portrait de Jacqueline"></div>
+      <div class="portrait"><img loading="lazy" decoding="async" src="img/opt/jacqueline.jpg" alt="Portrait de Jacqueline"></div>
       <div class="exp-badge"><b>10<span style="font-size:22px">+</span></b><small>ans<br>d'expérience</small></div>
       <svg class="about-crest" viewBox="0 0 200 234"><use href="#crest"/></svg>
     </div>
@@ -1056,7 +1068,7 @@ footer ul a:hover{color:#fff}
 <section class="sect" style="padding-top:0">
   <div class="wrap">
     <div class="cta-band reveal">
-      <img class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
+      <img loading="lazy" decoding="async" class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
       <div class="cta-in">
         <span class="eyebrow">Prêt(e) à passer à l'action ?</span>
         <h2>Échangeons ensemble sur votre projet !</h2>
@@ -1080,7 +1092,7 @@ footer ul a:hover{color:#fff}
     </div>
     <div class="contact-grid">
       <div class="c-info">
-        <div class="c-photo reveal"><img src="img/opt/salle.jpg" alt="La salle de jeu Enfance Éclairée, lumineuse et aménagée pour les enfants"></div>
+        <div class="c-photo reveal"><img loading="lazy" decoding="async" src="img/opt/salle.jpg" alt="La salle de jeu Enfance Éclairée, lumineuse et aménagée pour les enfants"></div>
         <div class="c-line reveal">
           <div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div><b>Zone d'intervention</b><span>Metz &amp; alentours · Moselle</span></div>

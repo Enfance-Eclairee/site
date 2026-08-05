@@ -350,6 +350,17 @@ nav .wrap{max-width:1280px}
 .art-back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--olive);margin-top:34px}
 .art-back:hover{color:var(--olive-deep)}
 
+.sugg{margin:52px 0 8px;padding-top:34px;border-top:1px solid rgba(110,82,58,.14)}
+.sugg-t{font-size:21px;margin-bottom:20px}
+.sugg-t em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.sugg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sugg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(110,82,58,.12);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.sugg-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px -22px rgba(74,56,38,.3)}
+.sugg-card img{width:100%;height:110px;object-fit:cover}
+.sugg-card span{padding:14px 16px 16px}
+.sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
+.sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -602,6 +613,7 @@ footer ul a:hover{color:#fff}
   .f-row{grid-template-columns:1fr}
   .t-card{padding:44px 26px 36px}
   .blog-card{width:100%}
+  .sugg-grid{grid-template-columns:1fr}
   .art-panel{padding:34px 24px}
   .f-grid{grid-template-columns:1fr}
   .hero{padding:48px 0 44px}
@@ -610,7 +622,7 @@ footer ul a:hover{color:#fff}
   .topbar span:nth-child(2){display:none}
 }
 </style>
-<link rel="canonical" href="https://enfance-eclairee.fr/ateliers"><script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Enfance Éclairée","description":"Formations et ateliers Montessori 0-6 ans pour les professionnels de la petite enfance et les familles, à Metz.","telephone":"+33610089671","email":"jacqueline.schmitt.1965@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Metz","addressRegion":"Grand Est","addressCountry":"FR"},"founder":{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori"},"openingHours":["We 09:30-17:00","Sa 09:30-17:00"],"url":"https://enfance-eclairee.fr","areaServed":"Metz et alentours, Moselle"}</script></head>
+<link rel="canonical" href="https://enfance-eclairee.fr/ateliers"><script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Enfance Éclairée","description":"Formations et ateliers Montessori 0-6 ans pour les professionnels de la petite enfance et les familles, à Metz.","telephone":"+33610089671","email":"jacqueline.schmitt.1965@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Metz","addressRegion":"Grand Est","addressCountry":"FR"},"founder":{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori"},"openingHours":["We 09:30-17:00","Sa 09:30-17:00"],"url":"https://enfance-eclairee.fr","areaServed":"Metz et alentours, Moselle"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Formations et ateliers Montessori 0-6 ans","provider":{"@type":"LocalBusiness","name":"Enfance Éclairée","telephone":"+33610089671"},"areaServed":{"@type":"City","name":"Metz"},"audience":{"@type":"Audience","audienceType":"Professionnels de la petite enfance, parents et futurs parents"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Ateliers et formations Montessori","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Formations Montessori pour professionnels de la petite enfance"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers Montessori pour les enfants de 0 à 6 ans"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ateliers parents et accompagnement à la parentalité"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Homestaging Montessori et aménagement d espaces"}}]}}</script></head>
 <body>
 
 <svg width="0" height="0" style="position:absolute">
@@ -735,7 +747,7 @@ footer ul a:hover{color:#fff}
     
     <div class="cat-grid">
       <div class="cat-card reveal">
-        <div class="cc-img"><img src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel d'exploration"></div>
+        <div class="cc-img"><img loading="lazy" decoding="async" src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel d'exploration"></div>
         <div class="ic"><svg fill="none" stroke-width="1.9" viewBox="0 0 24 24"><path d="M9 11.5V5.7a1.7 1.7 0 0 1 3.4 0v5"/><path d="M12.4 10.5V4.2a1.7 1.7 0 0 1 3.4 0v6.6"/><path d="M15.8 11V6.2a1.7 1.7 0 0 1 3.4 0V14c0 4.4-3 7.5-7 7.5-3.5 0-5.3-1.7-7.3-5.2l-1.6-3a1.6 1.6 0 0 1 2.7-1.6l1.6 2"/></svg></div>
         <h3>Vie pratique &amp; sensorielle</h3>
         <ul>
@@ -748,7 +760,7 @@ footer ul a:hover{color:#fff}
         <a class="blog-more" style="margin-top:18px;align-self:flex-start" href="vie-pratique-sensorielle">Voir plus de détails</a>
       </div>
       <div class="cat-card reveal d1">
-        <div class="cc-img"><img src="img/opt/reel_nature.jpg" alt="Atelier mathématiques avec des rondins"></div>
+        <div class="cc-img"><img loading="lazy" decoding="async" src="img/opt/reel_nature.jpg" alt="Atelier mathématiques avec des rondins"></div>
         <div class="ic"><svg fill="none" stroke-width="1.9" viewBox="0 0 24 24"><path d="M2 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1Z"/><path d="M22 6s-1.5-2-5-2-5 2-5 2v14s1.5-1 5-1 5 1 5 1Z"/></svg></div>
         <h3>Éveil &amp; apprentissages</h3>
         <ul>
@@ -761,7 +773,7 @@ footer ul a:hover{color:#fff}
         <a class="blog-more" style="margin-top:18px;align-self:flex-start" href="eveil-apprentissages">Voir plus de détails</a>
       </div>
       <div class="cat-card reveal d2">
-        <div class="cc-img"><img src="img/opt/paint_girl.jpg" alt="Enfant joyeux"></div>
+        <div class="cc-img"><img loading="lazy" decoding="async" src="img/opt/paint_girl.jpg" alt="Enfant joyeux"></div>
         <div class="ic"><svg fill="none" stroke-width="1.9" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
         <h3>Émotions &amp; développement</h3>
         <ul>
@@ -773,7 +785,7 @@ footer ul a:hover{color:#fff}
         <a class="blog-more" style="margin-top:18px;align-self:flex-start" href="emotions-developpement">Voir plus de détails</a>
       </div>
       <div class="cat-card reveal d3">
-        <div class="cc-img"><img src="img/opt/boats.jpg" alt="Jouets en bois faits main"></div>
+        <div class="cc-img"><img loading="lazy" decoding="async" src="img/opt/boats.jpg" alt="Jouets en bois faits main"></div>
         <div class="ic"><svg fill="none" stroke-width="1.9" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></div>
         <h3>Montessori au quotidien</h3>
         <ul>
@@ -785,7 +797,7 @@ footer ul a:hover{color:#fff}
         <a class="blog-more" style="margin-top:18px;align-self:flex-start" href="montessori-au-quotidien">Voir plus de détails</a>
       </div>
       <div class="cat-card reveal d3">
-        <div class="cc-img"><img src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"></div>
+        <div class="cc-img"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"></div>
         <div class="ic"><svg fill="none" stroke-width="1.9" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/><circle cx="18.5" cy="8.5" r="2.5"/><path d="M22 21v-1.5a3 3 0 0 0-2.5-3"/></svg></div>
         <h3>Les univers par âge</h3>
         <ul>
@@ -822,7 +834,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel active" id="panel-nido">
-      <div class="age-photo"><img src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"><span class="age-tag">NIDO</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé jouant avec un xylophone"><span class="age-tag">NIDO</span></div>
       <div class="age-content">
         <h3>Le Nido</h3>
         <span class="age-range">De la naissance à 18 mois</span>
@@ -836,7 +848,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel" id="panel-communaute">
-      <div class="age-photo"><img src="img/opt/communaute.jpg" alt="Jeunes enfants dessinant ensemble"><span class="age-tag">COMMUNAUTÉ ENFANTINE</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/communaute.jpg" alt="Jeunes enfants dessinant ensemble"><span class="age-tag">COMMUNAUTÉ ENFANTINE</span></div>
       <div class="age-content">
         <h3>La Communauté enfantine</h3>
         <span class="age-range">De 18 mois à 3 ans</span>
@@ -850,7 +862,7 @@ footer ul a:hover{color:#fff}
     </div>
 
     <div class="age-panel" id="panel-maison">
-      <div class="age-photo"><img src="img/opt/maison.jpg" alt="Enfant construisant avec des blocs en bois"><span class="age-tag">MAISON ENFANTINE</span></div>
+      <div class="age-photo"><img loading="lazy" decoding="async" src="img/opt/maison.jpg" alt="Enfant construisant avec des blocs en bois"><span class="age-tag">MAISON ENFANTINE</span></div>
       <div class="age-content">
         <h3>La Maison enfantine</h3>
         <span class="age-range">De 3 à 6 ans</span>
@@ -875,10 +887,10 @@ footer ul a:hover{color:#fff}
       <p>Espaces aménagés, matériel choisi avec soin, nature invitée à la table des apprentissages.</p>
     </div>
     <div class="gal">
-      <figure class="reveal"><img src="img/opt/reel_nido.jpg" alt="Espace nido aménagé"><figcaption>Espace nido aménagé pour la motricité libre</figcaption></figure>
-      <figure class="reveal d1"><img src="img/opt/reel_nature.jpg" alt="Atelier mathématiques nature"><figcaption>Compter avec la nature : rondins et bâtons</figcaption></figure>
-      <figure class="reveal d2"><img src="img/opt/reel_etagere.jpg" alt="Étagère Montessori"><figcaption>Étagère d'inspiration Montessori en libre accès</figcaption></figure>
-      <figure class="reveal d3"><img src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel"><figcaption>Bac sensoriel d'exploration et de découverte</figcaption></figure>
+      <figure class="reveal"><img loading="lazy" decoding="async" src="img/opt/reel_nido.jpg" alt="Espace nido aménagé"><figcaption>Espace nido aménagé pour la motricité libre</figcaption></figure>
+      <figure class="reveal d1"><img loading="lazy" decoding="async" src="img/opt/reel_nature.jpg" alt="Atelier mathématiques nature"><figcaption>Compter avec la nature : rondins et bâtons</figcaption></figure>
+      <figure class="reveal d2"><img loading="lazy" decoding="async" src="img/opt/reel_etagere.jpg" alt="Étagère Montessori"><figcaption>Étagère d'inspiration Montessori en libre accès</figcaption></figure>
+      <figure class="reveal d3"><img loading="lazy" decoding="async" src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel"><figcaption>Bac sensoriel d'exploration et de découverte</figcaption></figure>
     </div>
     <p class="gal-note reveal">Photographies issues des ateliers et espaces réellement animés par Jacqueline.</p>
   </div>
@@ -1437,7 +1449,7 @@ footer ul a:hover{color:#fff}
 <section class="sect" style="padding-top:0">
   <div class="wrap">
     <div class="cta-band reveal">
-      <img class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
+      <img loading="lazy" decoding="async" class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
       <div class="cta-in">
         <span class="eyebrow">Prêt(e) à passer à l'action ?</span>
         <h2>Échangeons ensemble sur votre projet !</h2>

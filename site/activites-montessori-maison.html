@@ -350,6 +350,17 @@ nav .wrap{max-width:1280px}
 .art-back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--olive);margin-top:34px}
 .art-back:hover{color:var(--olive-deep)}
 
+.sugg{margin:52px 0 8px;padding-top:34px;border-top:1px solid rgba(110,82,58,.14)}
+.sugg-t{font-size:21px;margin-bottom:20px}
+.sugg-t em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.sugg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sugg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(110,82,58,.12);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.sugg-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px -22px rgba(74,56,38,.3)}
+.sugg-card img{width:100%;height:110px;object-fit:cover}
+.sugg-card span{padding:14px 16px 16px}
+.sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
+.sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -602,6 +613,7 @@ footer ul a:hover{color:#fff}
   .f-row{grid-template-columns:1fr}
   .t-card{padding:44px 26px 36px}
   .blog-card{width:100%}
+  .sugg-grid{grid-template-columns:1fr}
   .art-panel{padding:34px 24px}
   .f-grid{grid-template-columns:1fr}
   .hero{padding:48px 0 44px}
@@ -716,10 +728,11 @@ footer ul a:hover{color:#fff}
     <div class="art-crumb"><a href="./" style="color:inherit">Accueil</a> · <a href="blog" style="color:inherit">Blog</a> · <b>5 activités Montessori à faire avec trois fois rien</b></div>
     <span class="art-pill">♥ Blog · À la maison</span>
     <h1>5 activités Montessori à faire avec trois fois rien</h1>
-    <div class="art-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Éducatrice Montessori · Le 22 juillet 2026</small></span></div>
+    <div class="art-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Éducatrice Montessori · Le 22 juillet 2026</small></span></div>
   </div>
 </header>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://enfance-eclairee.fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://enfance-eclairee.fr/blog"},{"@type":"ListItem","position":3,"name":"5 activités Montessori à faire avec trois fois rien"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"5 activités Montessori à faire avec trois fois rien","description":"Pas besoin de matériel coûteux : votre cuisine et vos placards regorgent déjà d'ateliers passionnants pour votre tout-petit.","image":"https://enfance-eclairee.fr/img/opt/rocks_craft.jpg","datePublished":"2026-07-22","dateModified":"2026-07-22","inLanguage":"fr-FR","author":{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori","url":"https://enfance-eclairee.fr/qui-sommes-nous"},"publisher":{"@type":"Organization","name":"Enfance Éclairée","logo":{"@type":"ImageObject","url":"https://enfance-eclairee.fr/favicon.svg"}},"mainEntityOfPage":"https://enfance-eclairee.fr/activites-montessori-maison","keywords":"À la maison, Montessori, Metz, petite enfance"}</script>
 <section class="sect" style="padding:56px 0 30px">
   <div class="wrap art-page">
     <p>On croit souvent que Montessori rime avec matériel en bois coûteux. En réalité, les meilleures activités sont déjà dans vos placards. En voici cinq, testées et approuvées dans mes ateliers.</p>
@@ -743,7 +756,7 @@ footer ul a:hover{color:#fff}
     <li>Éponges, gants de toilette, petits torchons</li>
     </ul>
     </div>
-    <figure class="art-img"><img src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel d'exploration préparé par Jacqueline"></figure>
+    <figure class="art-img"><img loading="lazy" decoding="async" src="img/opt/reel_sensoriel.jpg" alt="Bac sensoriel d'exploration préparé par Jacqueline"></figure>
     <div class="art-callout co-rose">
     <h5>Les règles d'or</h5>
     <ul>
@@ -753,6 +766,9 @@ footer ul a:hover{color:#fff}
     <li>On range ensemble : le rangement fait partie de l'activité</li>
     </ul>
     </div>
+    <div class="sugg"><h3 class="sugg-t">A lire ensuite <em>sur le blog</em></h3><div class="sugg-grid"><a class="sugg-card" href="nido-petit-nid-douillet"><img loading="lazy" decoding="async" src="img/opt/reel_nido.jpg" alt="Espace nido aménagé pour la motricité libre du bébé"><span><b>Un petit nid douillet pour mon bébé : le nido</b><small>Aménagement</small></span></a>
+<a class="sugg-card" href="montessori-freinet-steiner"><img loading="lazy" decoding="async" src="img/opt/ball_forest.jpg" alt="Enfants jouant librement en pleine nature"><span><b>Montessori, Freinet, Steiner : quelles différences ?</b><small>Pédagogies</small></span></a>
+<a class="sugg-card" href="stimulations-ni-trop-ni-trop-peu"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé explorant un jouet sonore"><span><b>Les stimulations : ni trop, ni trop peu</b><small>Éveil</small></span></a></div></div>
     <a class="art-back" href="blog">← Tous les articles</a>
   </div>
 </section>
@@ -760,7 +776,7 @@ footer ul a:hover{color:#fff}
 <section class="sect" style="padding-top:0">
   <div class="wrap">
     <div class="cta-band reveal">
-      <img class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
+      <img loading="lazy" decoding="async" class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
       <div class="cta-in">
         <span class="eyebrow">Prêt(e) à passer à l'action ?</span>
         <h2>Échangeons ensemble sur votre projet !</h2>

@@ -350,6 +350,17 @@ nav .wrap{max-width:1280px}
 .art-back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--olive);margin-top:34px}
 .art-back:hover{color:var(--olive-deep)}
 
+.sugg{margin:52px 0 8px;padding-top:34px;border-top:1px solid rgba(110,82,58,.14)}
+.sugg-t{font-size:21px;margin-bottom:20px}
+.sugg-t em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.sugg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sugg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(110,82,58,.12);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.sugg-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px -22px rgba(74,56,38,.3)}
+.sugg-card img{width:100%;height:110px;object-fit:cover}
+.sugg-card span{padding:14px 16px 16px}
+.sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
+.sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -602,6 +613,7 @@ footer ul a:hover{color:#fff}
   .f-row{grid-template-columns:1fr}
   .t-card{padding:44px 26px 36px}
   .blog-card{width:100%}
+  .sugg-grid{grid-template-columns:1fr}
   .art-panel{padding:34px 24px}
   .f-grid{grid-template-columns:1fr}
   .hero{padding:48px 0 44px}
@@ -716,10 +728,11 @@ footer ul a:hover{color:#fff}
     <div class="art-crumb"><a href="./" style="color:inherit">Accueil</a> · <a href="blog" style="color:inherit">Blog</a> · <b>Un petit nid douillet pour mon bébé : le nido</b></div>
     <span class="art-pill">♥ Blog · Aménagement</span>
     <h1>Un petit nid douillet pour mon bébé : le nido</h1>
-    <div class="art-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Éducatrice Montessori · Le 5 août 2026</small></span></div>
+    <div class="art-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Éducatrice Montessori · Le 5 août 2026</small></span></div>
   </div>
 </header>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://enfance-eclairee.fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://enfance-eclairee.fr/blog"},{"@type":"ListItem","position":3,"name":"Un petit nid douillet pour mon bébé : le nido"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Un petit nid douillet pour mon bébé : le nido","description":"Doux, accueillant, sécurisé : le nido est l'espace qui permet à votre bébé de s'épanouir et de profiter de la motricité libre en toute confiance.","image":"https://enfance-eclairee.fr/img/opt/reel_nido.jpg","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"fr-FR","author":{"@type":"Person","name":"Jacqueline Schmitt","jobTitle":"Éducatrice Montessori","url":"https://enfance-eclairee.fr/qui-sommes-nous"},"publisher":{"@type":"Organization","name":"Enfance Éclairée","logo":{"@type":"ImageObject","url":"https://enfance-eclairee.fr/favicon.svg"}},"mainEntityOfPage":"https://enfance-eclairee.fr/nido-petit-nid-douillet","keywords":"Aménagement, Montessori, Metz, petite enfance"}</script>
 <section class="sect" style="padding:56px 0 30px">
   <div class="wrap art-page">
     <p>Je vous parle du petit nid douillet qu'est le nido : ce petit espace doux, accueillant, sécurisé et harmonieux qui va aider votre bébé à s'épanouir, et surtout à profiter de la motricité libre en toute confiance.</p>
@@ -738,7 +751,7 @@ footer ul a:hover{color:#fff}
     <h4>Pourquoi la motricité libre change tout</h4>
     <p>Un bébé posé au sol, libre de ses mouvements, sans transat ni cale qui le maintiennent dans une position, construit lui-même sa force, son équilibre et sa confiance. Il roule, se tourne, rampe, s'assoit quand son corps est prêt : chaque étape arrive à son heure, sans être devancée.</p>
     <p>Le rôle de l'adulte est simple et exigeant : préparer l'espace, puis observer sans intervenir. C'est mon OPA au quotidien : observer pour mieux proposer et adapter.</p>
-    <figure class="art-img"><img src="img/opt/nido.jpg" alt="Bébé explorant librement dans son espace"></figure>
+    <figure class="art-img"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé explorant librement dans son espace"></figure>
     <div class="art-callout co-ocre">
     <h5>Les pièges à éviter</h5>
     <ul>
@@ -751,6 +764,9 @@ footer ul a:hover{color:#fff}
     <h4>Un nid qui évolue</h4>
     <p>Le nido n'est pas figé. De 0 à 6 mois on privilégie les contrastes et les mobiles ; de 6 à 18 mois, les objets à saisir et à transvaser ; ensuite viennent les formes, la géométrie et les premiers rangements. L'espace grandit avec l'enfant.</p>
     <p>Envie d'un nido chez vous ou dans votre structure ? C'est exactement ce que je viens faire en accompagnement homestaging Montessori : ensemble, on regarde ce que vous avez déjà, et on crée un espace adapté à votre enfant, à votre maison et à votre budget.</p>
+    <div class="sugg"><h3 class="sugg-t">A lire ensuite <em>sur le blog</em></h3><div class="sugg-grid"><a class="sugg-card" href="preparer-espace-bebe"><img loading="lazy" decoding="async" src="img/opt/bear_baby.jpg" alt="Nouveau-né paisible"><span><b>L'arrivée de bébé approche : préparer son espace</b><small>Aménagement</small></span></a>
+<a class="sugg-card" href="montessori-freinet-steiner"><img loading="lazy" decoding="async" src="img/opt/ball_forest.jpg" alt="Enfants jouant librement en pleine nature"><span><b>Montessori, Freinet, Steiner : quelles différences ?</b><small>Pédagogies</small></span></a>
+<a class="sugg-card" href="stimulations-ni-trop-ni-trop-peu"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé explorant un jouet sonore"><span><b>Les stimulations : ni trop, ni trop peu</b><small>Éveil</small></span></a></div></div>
     <a class="art-back" href="blog">← Tous les articles</a>
   </div>
 </section>
@@ -758,7 +774,7 @@ footer ul a:hover{color:#fff}
 <section class="sect" style="padding-top:0">
   <div class="wrap">
     <div class="cta-band reveal">
-      <img class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
+      <img loading="lazy" decoding="async" class="cta-bg" src="img/opt/cta.jpg" alt="Maman souriante avec son bébé rieur dans une chambre douce">
       <div class="cta-in">
         <span class="eyebrow">Prêt(e) à passer à l'action ?</span>
         <h2>Échangeons ensemble sur votre projet !</h2>

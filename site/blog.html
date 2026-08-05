@@ -350,6 +350,17 @@ nav .wrap{max-width:1280px}
 .art-back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;color:var(--olive);margin-top:34px}
 .art-back:hover{color:var(--olive-deep)}
 
+.sugg{margin:52px 0 8px;padding-top:34px;border-top:1px solid rgba(110,82,58,.14)}
+.sugg-t{font-size:21px;margin-bottom:20px}
+.sugg-t em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.sugg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sugg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(110,82,58,.12);border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.sugg-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px -22px rgba(74,56,38,.3)}
+.sugg-card img{width:100%;height:110px;object-fit:cover}
+.sugg-card span{padding:14px 16px 16px}
+.sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
+.sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -602,6 +613,7 @@ footer ul a:hover{color:#fff}
   .f-row{grid-template-columns:1fr}
   .t-card{padding:44px 26px 36px}
   .blog-card{width:100%}
+  .sugg-grid{grid-template-columns:1fr}
   .art-panel{padding:34px 24px}
   .f-grid{grid-template-columns:1fr}
   .hero{padding:48px 0 44px}
@@ -732,142 +744,142 @@ footer ul a:hover{color:#fff}
   <div class="wrap">
     <div class="blog-grid">
       <article class="blog-card reveal">
-        <div class="bc-img"><img src="img/opt/reel_nido.jpg" alt="Espace nido aménagé pour la motricité libre du bébé"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/reel_nido.jpg" alt="Espace nido aménagé pour la motricité libre du bébé"></div>
         <span class="blog-tag t-rose">Aménagement</span>
         <h3>Un petit nid douillet pour mon bébé : le nido</h3>
         <p>Doux, accueillant, sécurisé : le nido est l'espace qui permet à votre bébé de s'épanouir et de profiter de la motricité libre en toute confiance.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 5 août 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 5 août 2026</small></span></span>
           <a class="blog-more" href="nido-petit-nid-douillet">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d1">
-        <div class="bc-img"><img src="img/opt/ball_forest.jpg" alt="Enfants jouant librement en pleine nature"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/ball_forest.jpg" alt="Enfants jouant librement en pleine nature"></div>
         <span class="blog-tag" style="background:var(--amande-soft);color:var(--olive-deep)">Pédagogies</span>
         <h3>Montessori, Freinet, Steiner : quelles différences ?</h3>
         <p>Trois pédagogies alternatives, trois visions de l'enfant : un comparatif simple, et pourquoi Montessori parle tant aux 0-6 ans.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 2 août 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 2 août 2026</small></span></span>
           <a class="blog-more" href="montessori-freinet-steiner">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d2">
-        <div class="bc-img"><img src="img/opt/nido.jpg" alt="Bébé explorant un jouet sonore"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/nido.jpg" alt="Bébé explorant un jouet sonore"></div>
         <span class="blog-tag">Éveil</span>
         <h3>Les stimulations : ni trop, ni trop peu</h3>
         <p>Trop de jouets éteignent la curiosité, pas assez la laissent en sommeil. Comment trouver le juste milieu grâce à l'observation de votre enfant.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 1 août 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 1 août 2026</small></span></span>
           <a class="blog-more" href="stimulations-ni-trop-ni-trop-peu">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal">
-        <div class="bc-img"><img src="img/opt/reel_nido.jpg" alt="Paniers en osier remplis d'objets à explorer"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/reel_nido.jpg" alt="Paniers en osier remplis d'objets à explorer"></div>
         <span class="blog-tag t-ocre">Bébé</span>
         <h3>Les « paniers d'objets », un vrai trésor</h3>
         <p>Quelques objets du quotidien dans un panier en osier, et voilà l'une des activités d'éveil les plus riches qui soient pour un bébé.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 30 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 30 juillet 2026</small></span></span>
           <a class="blog-more" href="paniers-objets-tresor">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d1">
-        <div class="bc-img"><img src="img/opt/bear_baby.jpg" alt="Nouveau-né paisible"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/bear_baby.jpg" alt="Nouveau-né paisible"></div>
         <span class="blog-tag t-rose">Aménagement</span>
         <h3>L'arrivée de bébé approche : préparer son espace</h3>
         <p>Pas besoin de tout changer ni de tout acheter : quelques aménagements bien pensés suffisent pour un espace sécurisé, adapté à votre maison et à votre budget.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 29 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 29 juillet 2026</small></span></span>
           <a class="blog-more" href="preparer-espace-bebe">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d2">
-        <div class="bc-img"><img src="img/opt/formation.jpg" alt="Manipulation de matériel Montessori"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/formation.jpg" alt="Manipulation de matériel Montessori"></div>
         <span class="blog-tag">Idées reçues</span>
         <h3>Pas besoin d'avoir peur de Montessori !</h3>
         <p>« C'est cher, c'est trop strict, il faut du matériel… » Et si on changeait de regard ? Jacqueline démonte une à une les idées reçues, avec ses mots.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 29 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 29 juillet 2026</small></span></span>
           <a class="blog-more" href="pas-peur-de-montessori">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal">
-        <div class="bc-img"><img src="img/opt/atelier_structures.jpg" alt="Atelier créatif avec de jeunes enfants"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/atelier_structures.jpg" alt="Atelier créatif avec de jeunes enfants"></div>
         <span class="blog-tag t-ocre">Formations</span>
         <h3>Les formations Montessori sont ouvertes !</h3>
         <p>Nouveautés, activités et astuces pour mieux accompagner votre tout-petit ou votre enfant : les inscriptions aux formations et ateliers sont ouvertes.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 28 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 28 juillet 2026</small></span></span>
           <a class="blog-more" href="formations-montessori-ouvertes">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d1">
-        <div class="bc-img"><img src="img/opt/reel_etagere.jpg" alt="Enfant qui choisit son activité sur une étagère"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/reel_etagere.jpg" alt="Enfant qui choisit son activité sur une étagère"></div>
         <span class="blog-tag">Pédagogie</span>
         <h3>« Aide-moi à faire seul » : la phrase qui change tout</h3>
         <p>Derrière la citation la plus célèbre de Maria Montessori se cache un principe simple qui transforme le quotidien des enfants comme des adultes.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 24 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 24 juillet 2026</small></span></span>
           <a class="blog-more" href="aide-moi-a-faire-seul">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d2">
-        <div class="bc-img"><img src="img/opt/rocks_craft.jpg" alt="Atelier créatif avec des éléments naturels"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/rocks_craft.jpg" alt="Atelier créatif avec des éléments naturels"></div>
         <span class="blog-tag">À la maison</span>
         <h3>5 activités Montessori à faire avec trois fois rien</h3>
         <p>Pas besoin de matériel coûteux : votre cuisine et vos placards regorgent déjà d'ateliers passionnants pour votre tout-petit.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 22 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 22 juillet 2026</small></span></span>
           <a class="blog-more" href="activites-montessori-maison">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal">
-        <div class="bc-img"><img src="img/opt/communaute.jpg" alt="Jeunes enfants en pleine activité"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/communaute.jpg" alt="Jeunes enfants en pleine activité"></div>
         <span class="blog-tag">Développement</span>
         <h3>Les périodes sensibles, ces fenêtres où tout s'apprend</h3>
         <p>Langage, ordre, mouvement : de 0 à 6 ans, votre enfant traverse des phases où il absorbe tout. Encore faut-il les reconnaître.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 18 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 18 juillet 2026</small></span></span>
           <a class="blog-more" href="periodes-sensibles">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d1">
-        <div class="bc-img"><img src="img/opt/paint_girl.jpg" alt="Enfant joyeux couvert de peinture"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/paint_girl.jpg" alt="Enfant joyeux couvert de peinture"></div>
         <span class="blog-tag">Émotions</span>
         <h3>Accompagner les tempêtes émotionnelles du tout-petit</h3>
         <p>Colères, pleurs, refus : et si ces débordements étaient une étape normale du développement du cerveau ? Des clés concrètes pour les traverser.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 15 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 15 juillet 2026</small></span></span>
           <a class="blog-more" href="tempetes-emotionnelles">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d2">
-        <div class="bc-img"><img src="img/opt/blocks_hand.jpg" alt="Main d'enfant empilant des blocs de bois"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/blocks_hand.jpg" alt="Main d'enfant empilant des blocs de bois"></div>
         <span class="blog-tag">Neurosciences</span>
         <h3>La main, ce premier cerveau : ce que dit la science</h3>
         <p>Verser, trier, toucher : pourquoi la manipulation construit l'intelligence bien mieux qu'un écran, selon les neurosciences.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 10 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 10 juillet 2026</small></span></span>
           <a class="blog-more" href="la-main-premier-cerveau">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal">
-        <div class="bc-img"><img src="img/opt/boats.jpg" alt="Matériel didactique Montessori en bois"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/boats.jpg" alt="Matériel didactique Montessori en bois"></div>
         <span class="blog-tag">Matériel</span>
         <h3>Le matériel didactique Montessori : comprendre, manipuler, transmettre</h3>
         <p>Tour rose, lettres rugueuses, perles dorées : pourquoi ce matériel facilite les apprentissages, et pourquoi il faut se former pour bien le présenter.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 8 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 8 juillet 2026</small></span></span>
           <a class="blog-more" href="materiel-didactique-montessori">Voir l'article</a>
         </div>
       </article>
       <article class="blog-card reveal d1">
-        <div class="bc-img"><img src="img/opt/hero.jpg" alt="Éducatrice avec un groupe d'enfants"></div>
+        <div class="bc-img"><img loading="lazy" decoding="async" src="img/opt/hero.jpg" alt="Éducatrice avec un groupe d'enfants"></div>
         <span class="blog-tag t-ocre">Études</span>
         <h3>Montessori à l'épreuve de la science : quels effets sur les enfants ?</h3>
         <p>Lecture, mathématiques, compétences sociales, bien-être : tour d'horizon des études qui ont mesuré les effets réels de la pédagogie.</p>
         <div class="blog-foot">
-          <span class="blog-author"><img src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 4 juillet 2026</small></span></span>
+          <span class="blog-author"><img loading="lazy" decoding="async" src="img/opt/avatar.jpg" alt="Jacqueline Schmitt"><span><b>Jacqueline Schmitt</b><small>Le 4 juillet 2026</small></span></span>
           <a class="blog-more" href="montessori-et-la-science">Voir l'article</a>
         </div>
       </article>
