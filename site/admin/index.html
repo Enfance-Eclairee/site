@@ -57,6 +57,11 @@ em.script{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sau
 .card{background:var(--white);border-radius:24px;padding:36px 34px;box-shadow:0 18px 46px -30px rgba(74,56,38,.28);border:1px solid rgba(110,82,58,.08)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 textarea{resize:vertical;min-height:280px;line-height:1.7}
+.inline-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.mini{background:var(--amande-soft);border:none;border-radius:100px;padding:9px 18px;font-family:'Karla';font-weight:700;font-size:13.5px;color:var(--olive-deep);cursor:pointer;transition:.25s}
+.mini:hover{background:var(--sauge);color:#fff}
+.mini:disabled{opacity:.6;cursor:wait}
+.mini-hint{font-size:12.5px;color:#98876E}
 .tips{background:var(--amande-soft);border-radius:16px;padding:16px 20px;font-size:13.5px;color:#5C4F3E;margin-bottom:22px}
 .tips b{color:var(--marron-deep)}
 .drop{border:2px dashed rgba(110,82,58,.28);border-radius:16px;padding:26px;text-align:center;cursor:pointer;transition:.25s;background:var(--cream)}
@@ -91,8 +96,8 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
     <form id="loginForm">
       <div class="field">
         <label for="pwd">Votre mot de passe</label>
-        <input type="password" id="pwd" placeholder="Collez votre mot de passe ici" autocomplete="current-password" required>
-        <div class="hint">Il vous a été transmis par votre webmaster. Votre navigateur s'en souviendra.</div>
+        <input type="password" id="pwd" placeholder="Votre mot de passe" autocomplete="current-password" required>
+        <div class="hint">Votre navigateur s'en souviendra pour les prochaines fois.</div>
       </div>
       <button class="btn" type="submit" id="loginBtn" style="width:100%">Me connecter</button>
     </form>
@@ -153,6 +158,7 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
             <img id="preview" style="display:none">
           </div>
           <input type="file" id="file" accept="image/*" hidden>
+          <input type="file" id="fileInline" accept="image/*" hidden>
         </div>
 
         <div class="field">
@@ -162,11 +168,15 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 
         <div class="tips">
           <b>Astuce :</b> pour créer un sous-titre dans votre texte, écrivez <b>####</b> juste devant la ligne.<br>
-          Exemple : <i>#### Pourquoi ça fonctionne si bien</i>
+          Exemple : <i>#### Pourquoi ça fonctionne si bien</i><br><br><b>Vos photos :</b> celle du haut (« Photo de l&rsquo;article ») s&rsquo;affiche en grand en haut de la page. Pour en mettre <b>dans le texte</b>, utilisez le bouton juste en dessous.
         </div>
 
         <div class="field">
           <label for="body">Texte de l'article</label>
+          <div class="inline-tools">
+            <button type="button" class="mini" id="addPhoto">Inserer une photo dans le texte</button>
+            <span class="mini-hint">Placez le curseur ou vous voulez la photo, puis cliquez</span>
+          </div>
           <textarea id="body" placeholder="Écrivez librement ici…&#10;&#10;Laissez une ligne vide entre vos paragraphes.&#10;&#10;#### Un sous-titre&#10;&#10;La suite de votre texte…" required></textarea>
         </div>
 
@@ -200,6 +210,22 @@ const API  = "https://api.github.com/repos/" + REPO;
 const KEY  = "ee_token";
 let TOKEN = localStorage.getItem(KEY) || "";
 
+/* Coffre-fort : la cle d acces au site est chiffree ici.
+   Seul le mot de passe de Jacqueline permet de la dechiffrer, dans son navigateur.
+   Sans le mot de passe, ce texte est inutilisable. */
+const COFFRE = "__COFFRE__";
+
+async function ouvrirCoffre(motDePasse) {
+  const raw = Uint8Array.from(atob(COFFRE), c => c.charCodeAt(0));
+  const sel = raw.slice(0, 16), iv = raw.slice(16, 28), data = raw.slice(28);
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(motDePasse), "PBKDF2", false, ["deriveKey"]);
+  const cle = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: sel, iterations: 600000, hash: "SHA-256" },
+    base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+  const clair = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, cle, data);
+  return new TextDecoder().decode(clair);
+}
+
 const $ = id => document.getElementById(id);
 const show = (el, cls, txt) => { el.className = "msg " + cls; el.textContent = txt; };
 const hide = el => { el.className = "msg"; el.textContent = ""; };
@@ -224,14 +250,14 @@ $("loginForm").addEventListener("submit", async e => {
   e.preventDefault();
   const btn = $("loginBtn");
   btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Connexion…';
-  TOKEN = $("pwd").value.trim();
   try {
+    TOKEN = await ouvrirCoffre($("pwd").value.trim());
     const r = await api("");
     if (!r.ok) throw new Error();
     localStorage.setItem(KEY, TOKEN);
     enter();
   } catch {
-    show($("loginMsg"), "err", "Ce mot de passe n'est pas reconnu. Vérifiez qu'il est collé en entier.");
+    show($("loginMsg"), "err", "Mot de passe incorrect. Vérifiez les majuscules et les tirets.");
     btn.disabled = false; btn.textContent = "Me connecter";
   }
 });
@@ -267,6 +293,29 @@ $("drop").addEventListener("dragover", e => { e.preventDefault(); $("drop").clas
 $("drop").addEventListener("dragleave", () => $("drop").classList.remove("over"));
 $("drop").addEventListener("drop", e => { e.preventDefault(); $("drop").classList.remove("over"); handleFile(e.dataTransfer.files[0]); });
 $("file").addEventListener("change", e => handleFile(e.target.files[0]));
+
+let inlinePhotos = [];
+$("addPhoto").addEventListener("click", () => $("fileInline").click());
+$("fileInline").addEventListener("change", e => {
+  const f = e.target.files[0];
+  if (!f || !f.type.startsWith("image/")) return;
+  const btn = $("addPhoto");
+  btn.disabled = true; btn.textContent = "Chargement de la photo...";
+  const rd = new FileReader();
+  rd.onload = () => {
+    const n = inlinePhotos.length + 1;
+    inlinePhotos.push({ data: rd.result.split(",")[1], ext: f.type.includes("png") ? ".png" : ".jpg", marker: "[photo" + n + "]" });
+    const ta = $("body"), pos = ta.selectionStart, txt = ta.value;
+    const bloc = (pos > 0 && txt[pos-1] !== "\n" ? "\n\n" : "") + "[photo" + n + "]\n\n";
+    ta.value = txt.slice(0, pos) + bloc + txt.slice(pos);
+    ta.focus(); ta.selectionStart = ta.selectionEnd = pos + bloc.length;
+    btn.disabled = false; btn.textContent = "Inserer une photo dans le texte";
+    show($("formMsg"), "ok", "Photo " + n + " ajoutee dans votre texte. Elle apparaitra a cet endroit dans l article.");
+    setTimeout(() => hide($("formMsg")), 4000);
+  };
+  rd.readAsDataURL(f);
+  e.target.value = "";
+});
 
 function handleFile(f) {
   if (!f || !f.type.startsWith("image/")) return;
@@ -306,11 +355,23 @@ $("publish").addEventListener("click", async () => {
       if (!up.ok && up.status !== 422) throw new Error("photo");
     }
 
+    for (let i = 0; i < inlinePhotos.length; i++) {
+      const ph = inlinePhotos[i];
+      ph.path = "img/uploads/" + slug + "-photo" + (i + 1) + ph.ext;
+      const r2 = await api("/contents/" + ph.path, {
+        method: "PUT",
+        body: JSON.stringify({ message: "Photo article : " + slug, content: ph.data })
+      });
+      if (!r2.ok && r2.status !== 422) throw new Error("photo");
+    }
+
     // corps : paragraphes et sous-titres
     const html = body.split(/\n\s*\n/).map(p => {
       p = p.trim();
       if (!p) return "";
       if (p.startsWith("####")) return "<h4>" + p.replace(/^#+\s*/, "") + "</h4>";
+      const ph = inlinePhotos.find(x => x.marker === p);
+      if (ph) return '<figure class="art-img"><img src="' + ph.path + '" alt="' + (($("alt").value.trim() || title).replace(/"/g, "'")) + '"></figure>';
       return "<p>" + p.replace(/\n/g, "<br>") + "</p>";
     }).filter(Boolean).join("\n");
 
@@ -349,7 +410,7 @@ $("publish").addEventListener("click", async () => {
 
 $("again").addEventListener("click", () => {
   ["title", "desc", "body", "alt"].forEach(id => $(id).value = "");
-  imageData = null;
+  imageData = null; inlinePhotos = [];
   $("preview").style.display = "none";
   $("dropTxt").textContent = "📷 Cliquez ici ou glissez votre photo";
   $("success").style.display = "none";
