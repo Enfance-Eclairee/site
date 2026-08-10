@@ -513,50 +513,6 @@ QUI_CENTRE = """<section class="sect has-blobs" style="padding-top:0">
 </section>"""
 
 
-ISSUE_URL = "https://github.com/Enfance-Eclairee/site/issues/new?template=nouvel-article.yml"
-
-ECRIRE_PAGE = """<header class="art-hero">
-  <img class="bg" src="__IMG_SALLE__" alt="">
-  <div class="veil"></div>
-  <div class="wrap">
-    <span class="art-pill">&#9829; Espace r&#233;daction</span>
-    <h1>&#201;crire un nouvel <em style="font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge)">article</em></h1>
-    <p style="color:#5C4F3E;max-width:600px;margin-top:6px">Votre espace personnel pour partager vos conseils. Vous &#233;crivez, et l&#8217;article appara&#238;t sur votre blog deux minutes plus tard. Aucune comp&#233;tence technique n&#233;cessaire.</p>
-  </div>
-</header>
-<section class="sect" style="padding:56px 0 40px">
-  <div class="wrap" style="max-width:860px">
-    <div class="steps" style="grid-template-columns:repeat(3,1fr)">
-      <div class="step reveal"><div class="num">1</div><h3>Vous remplissez</h3><p>Un formulaire tout simple : le titre, un r&#233;sum&#233;, une photo &#224; glisser, et votre texte.</p></div>
-      <div class="step reveal d1"><div class="num">2</div><h3>Vous validez</h3><p>Un clic sur le bouton vert en bas du formulaire, et c&#8217;est envoy&#233;.</p></div>
-      <div class="step reveal d2"><div class="num">3</div><h3>C&#8217;est en ligne</h3><p>Deux minutes plus tard, votre article est publi&#233; sur le blog, dans le m&#234;me design que les autres.</p></div>
-    </div>
-
-    <div style="text-align:center;margin:46px 0 10px">
-      <a class="btn" href="ISSUE_URL_PLACEHOLDER" target="_blank" rel="noopener" style="font-size:17px;padding:18px 38px">&#9998;&#65039;&nbsp;&nbsp;Commencer &#224; &#233;crire</a>
-      <p style="font-size:13.5px;color:#98876E;margin-top:14px">La page d&#8217;&#233;criture s&#8217;ouvre dans un nouvel onglet.</p>
-    </div>
-
-    <div class="art-callout" style="margin-top:40px">
-      <h5>Quelques conseils pour un bel article</h5>
-      <ul>
-        <li>Un titre court et parlant, comme si vous vous adressiez &#224; un parent</li>
-        <li>Le r&#233;sum&#233; en deux phrases : c&#8217;est ce qu&#8217;on lit sur la carte du blog</li>
-        <li>Pour cr&#233;er un sous-titre dans votre texte, mettez <b>####</b> juste devant (exemple : #### Pourquoi &#231;a marche)</li>
-        <li>Une belle photo lumineuse : glissez-la directement dans la case pr&#233;vue</li>
-      </ul>
-    </div>
-
-    <div class="art-callout co-rose" style="margin-top:20px">
-      <h5>La premi&#232;re fois seulement</h5>
-      <p style="margin:0;font-size:15px;color:#5C4F3E">Un identifiant vous sera demand&#233; : c&#8217;est celui du compte <b>Enfance-Eclairee</b> qui h&#233;berge votre site. Une fois connect&#233;e, votre navigateur s&#8217;en souvient et vous n&#8217;aurez plus jamais &#224; le saisir.</p>
-    </div>
-
-    <div style="text-align:center;margin-top:36px">
-      <a class="art-back" href="blog.html">&#8592; Voir tous les articles du blog</a>
-    </div>
-  </div>
-</section>"""
 
 # ---------- pages ----------
 META = {
@@ -732,8 +688,6 @@ META["qui-sommes-nous.html"] = ("Qui sommes-nous · Enfance Éclairée Metz",
 for _slug,_t,_c,_i,_items in THEMES:
     META[_slug+".html"] = (_t + " · Enfance Éclairée Metz", _i)
     pages[_slug+".html"] = compose(_slug+".html", theme_page(_slug,_t,_c,_i,_items), cta_ext)
-META["ecrire.html"] = ("Espace rédaction · Enfance Éclairée", "Espace personnel de rédaction des articles du blog Enfance Éclairée.")
-pages["ecrire.html"] = compose("ecrire.html", ECRIRE_PAGE.replace("ISSUE_URL_PLACEHOLDER", ISSUE_URL))
 pages["qui-sommes-nous.html"] = compose("qui-sommes-nous.html", QUI_HERO, chunks["ABOUT"], QUI_PARCOURS, cta_ext)
 for a in articles:
     _t_clean = re.sub("<[^>]+>", "", a["title"])
@@ -830,7 +784,7 @@ for d in ("img/opt", "img/uploads"):
 print("images copiées dans site/img/")
 
 # ---------- SEO : sitemap + robots ----------
-urls = [n for n in pages if n not in ("404.html", "ecrire.html")]
+urls = [n for n in pages if n not in ("404.html",)]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for n in sorted(urls):
     loc = BASE_URL + "/" + ("" if n=="index.html" else n[:-5])

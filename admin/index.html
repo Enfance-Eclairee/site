@@ -1,12 +1,367 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="robots" content="noindex"/>
-  <title>Espace d'administration · Enfance Éclairée</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Espace de rédaction · Enfance Éclairée</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Karla:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F2E8;--cream-2:#F0E8D9;--white:#FFFDF8;--amande-soft:#DCE5D4;
+  --sauge:#7C9270;--olive:#55673F;--olive-deep:#43522F;--marron:#6E523A;--marron-deep:#4A3826;
+  --rose:#D98E75;--rose-deep:#C0755A;--rose-soft:#F4DCD2;--ocre:#C99A3C;--ocre-soft:#F1E4C4;--gold:#C2A277;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Karla',sans-serif;background:var(--cream);color:#3B3124;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Quicksand',sans-serif;font-weight:600;color:var(--marron-deep);line-height:1.2}
+em.script{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--olive);color:#FBF8F0;font-family:'Karla',sans-serif;font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:.25s;box-shadow:0 14px 30px -14px rgba(85,103,63,.55)}
+.btn:hover{background:var(--olive-deep);transform:translateY(-2px)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.btn.ghost{background:none;color:var(--marron);border:1.6px solid rgba(110,82,58,.35);box-shadow:none}
+.btn.ghost:hover{background:rgba(110,82,58,.07)}
+.btn.rose{background:var(--rose-deep);box-shadow:0 14px 30px -14px rgba(192,117,90,.6)}
+
+/* --- barre du haut --- */
+.top{background:var(--white);border-bottom:1px solid rgba(110,82,58,.12);padding:16px 0;position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1100px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px}
+.brand b{display:block;font-family:'Quicksand',sans-serif;font-size:18px;color:var(--marron-deep)}
+.brand small{font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--sauge)}
+.logout{background:none;border:none;cursor:pointer;font-family:'Karla';font-size:13.5px;color:#98876E;text-decoration:underline}
+
+/* --- connexion --- */
+.login{min-height:100vh;display:grid;place-items:center;padding:30px 20px}
+.login-card{background:var(--white);border-radius:28px;padding:48px 44px;max-width:470px;width:100%;box-shadow:0 24px 60px -30px rgba(74,56,38,.3);text-align:center}
+.login-card img.crest{width:76px;margin:0 auto 20px;display:block}
+.login-card h1{font-size:26px;margin-bottom:8px}
+.login-card p.sub{color:#8A7A64;font-size:15px;margin-bottom:28px}
+.field{text-align:left;margin-bottom:18px}
+.field label{display:block;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8A7A64;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;font-family:'Karla';font-size:15.5px;padding:14px 18px;border:1.6px solid rgba(110,82,58,.2);border-radius:14px;background:var(--cream);color:#3B3124;outline:none;transition:.25s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sauge);background:#fff}
+.field .hint{font-size:12.5px;color:#98876E;margin-top:6px}
+.msg{border-radius:14px;padding:14px 18px;font-size:14.5px;margin-bottom:18px;display:none}
+.msg.err{display:block;background:var(--rose-soft);color:var(--rose-deep);font-weight:600}
+.msg.ok{display:block;background:var(--amande-soft);color:var(--olive-deep);font-weight:600}
+
+/* --- application --- */
+#app{display:none;padding:38px 0 70px}
+.page-title{text-align:center;margin-bottom:34px}
+.page-title h1{font-size:30px;margin-bottom:6px}
+.page-title p{color:#8A7A64;font-size:15px}
+.card{background:var(--white);border-radius:24px;padding:36px 34px;box-shadow:0 18px 46px -30px rgba(74,56,38,.28);border:1px solid rgba(110,82,58,.08)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+textarea{resize:vertical;min-height:280px;line-height:1.7}
+.tips{background:var(--amande-soft);border-radius:16px;padding:16px 20px;font-size:13.5px;color:#5C4F3E;margin-bottom:22px}
+.tips b{color:var(--marron-deep)}
+.drop{border:2px dashed rgba(110,82,58,.28);border-radius:16px;padding:26px;text-align:center;cursor:pointer;transition:.25s;background:var(--cream)}
+.drop:hover,.drop.over{border-color:var(--sauge);background:#fff}
+.drop p{font-size:14px;color:#8A7A64}
+.drop img{max-height:150px;border-radius:12px;margin-top:12px}
+.actions{display:flex;gap:14px;align-items:center;margin-top:26px;flex-wrap:wrap}
+.list{margin-top:34px}
+.list h2{font-size:19px;margin-bottom:14px}
+.art{background:var(--white);border:1px solid rgba(110,82,58,.1);border-radius:16px;padding:14px 20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.art b{font-family:'Quicksand';font-size:15px;color:var(--marron-deep)}
+.art small{color:#98876E;font-size:12.5px}
+.art a{font-size:13px;color:var(--olive);font-weight:700;text-decoration:none;white-space:nowrap}
+.done{text-align:center;padding:20px 0}
+.done .heart{font-size:38px;color:var(--rose-deep)}
+.done h2{font-size:25px;margin:10px 0 8px}
+.done p{color:#5C4F3E;margin-bottom:22px}
+.spin{display:inline-block;width:15px;height:15px;border:2.4px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media(max-width:640px){.row{grid-template-columns:1fr}.card{padding:26px 20px}.login-card{padding:34px 24px}}
+</style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<!-- ============ CONNEXION ============ -->
+<div class="login" id="login">
+  <div class="login-card">
+    <img class="crest" src="../favicon.svg" alt="Enfance Éclairée">
+    <h1>Espace de <em class="script">rédaction</em></h1>
+    <p class="sub">Bonjour Jacqueline ! Connectez-vous pour écrire et publier vos articles.</p>
+    <div class="msg" id="loginMsg"></div>
+    <form id="loginForm">
+      <div class="field">
+        <label for="pwd">Votre mot de passe</label>
+        <input type="password" id="pwd" placeholder="Collez votre mot de passe ici" autocomplete="current-password" required>
+        <div class="hint">Il vous a été transmis par votre webmaster. Votre navigateur s'en souviendra.</div>
+      </div>
+      <button class="btn" type="submit" id="loginBtn" style="width:100%">Me connecter</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ APPLICATION ============ -->
+<div class="top" id="top" style="display:none">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../favicon.svg" alt="">
+      <span><b>Espace de rédaction</b><small>Enfance Éclairée</small></span>
+    </div>
+    <button class="logout" id="logout">Se déconnecter</button>
+  </div>
+</div>
+
+<div id="app">
+  <div class="wrap">
+    <div id="editor">
+      <div class="page-title">
+        <h1>Écrire un nouvel <em class="script">article</em></h1>
+        <p>Remplissez les cases, cliquez sur Publier : votre article sera en ligne dans 2 minutes.</p>
+      </div>
+
+      <div class="card">
+        <div class="msg" id="formMsg"></div>
+
+        <div class="field">
+          <label for="title">Titre de l'article</label>
+          <input type="text" id="title" placeholder="Ex : Les paniers d'objets, un vrai trésor" required>
+        </div>
+
+        <div class="field">
+          <label for="desc">Résumé (2 phrases, affiché sur la carte du blog)</label>
+          <input type="text" id="desc" placeholder="Ex : Pourquoi ces paniers fascinent les bébés, et comment composer le vôtre." required>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="tag">Catégorie</label>
+            <input type="text" id="tag" placeholder="Éveil, Bébé, Émotions…" value="Éveil" required>
+          </div>
+          <div class="field">
+            <label for="color">Couleur du badge</label>
+            <select id="color">
+              <option value="sauge">Vert sauge</option>
+              <option value="ocre">Ocre doré</option>
+              <option value="rose">Rose</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Photo de l'article</label>
+          <div class="drop" id="drop">
+            <p id="dropTxt">📷 Cliquez ici ou glissez votre photo</p>
+            <img id="preview" style="display:none">
+          </div>
+          <input type="file" id="file" accept="image/*" hidden>
+        </div>
+
+        <div class="field">
+          <label for="alt">Description de la photo <span style="text-transform:none;letter-spacing:0;font-weight:400">(aide Google)</span></label>
+          <input type="text" id="alt" placeholder="Ex : Bébé explorant un panier d'objets en bois">
+        </div>
+
+        <div class="tips">
+          <b>Astuce :</b> pour créer un sous-titre dans votre texte, écrivez <b>####</b> juste devant la ligne.<br>
+          Exemple : <i>#### Pourquoi ça fonctionne si bien</i>
+        </div>
+
+        <div class="field">
+          <label for="body">Texte de l'article</label>
+          <textarea id="body" placeholder="Écrivez librement ici…&#10;&#10;Laissez une ligne vide entre vos paragraphes.&#10;&#10;#### Un sous-titre&#10;&#10;La suite de votre texte…" required></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="publish">🌱&nbsp;&nbsp;Publier mon article</button>
+          <a class="btn ghost" href="../blog" target="_blank" rel="noopener">Voir le blog</a>
+        </div>
+      </div>
+
+      <div class="list" id="list"></div>
+    </div>
+
+    <!-- écran de confirmation -->
+    <div id="success" style="display:none">
+      <div class="card done">
+        <div class="heart">♥</div>
+        <h2>C'est publié !</h2>
+        <p>Votre article sera visible sur le blog dans environ 2 minutes.<br>Le site se met à jour tout seul.</p>
+        <div class="actions" style="justify-content:center">
+          <a class="btn" id="seeArticle" target="_blank" rel="noopener">Voir mon article</a>
+          <button class="btn ghost" id="again">Écrire un autre article</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const REPO = "Enfance-Eclairee/site";
+const API  = "https://api.github.com/repos/" + REPO;
+const KEY  = "ee_token";
+let TOKEN = localStorage.getItem(KEY) || "";
+
+const $ = id => document.getElementById(id);
+const show = (el, cls, txt) => { el.className = "msg " + cls; el.textContent = txt; };
+const hide = el => { el.className = "msg"; el.textContent = ""; };
+
+function api(path, opts = {}) {
+  return fetch(API + path, {
+    ...opts,
+    headers: { "Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json", ...(opts.headers || {}) }
+  });
+}
+
+// encodage base64 compatible accents
+const b64 = str => btoa(unescape(encodeURIComponent(str)));
+
+function slugify(s) {
+  return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "article";
+}
+
+// ---------- connexion ----------
+$("loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const btn = $("loginBtn");
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Connexion…';
+  TOKEN = $("pwd").value.trim();
+  try {
+    const r = await api("");
+    if (!r.ok) throw new Error();
+    localStorage.setItem(KEY, TOKEN);
+    enter();
+  } catch {
+    show($("loginMsg"), "err", "Ce mot de passe n'est pas reconnu. Vérifiez qu'il est collé en entier.");
+    btn.disabled = false; btn.textContent = "Me connecter";
+  }
+});
+
+$("logout").addEventListener("click", () => { localStorage.removeItem(KEY); location.reload(); });
+
+function enter() {
+  $("login").style.display = "none";
+  $("top").style.display = "block";
+  $("app").style.display = "block";
+  loadArticles();
+}
+
+// ---------- liste des articles existants ----------
+async function loadArticles() {
+  try {
+    const r = await api("/contents/content/blog");
+    if (!r.ok) return;
+    const files = (await r.json()).filter(f => f.name.endsWith(".md"));
+    $("list").innerHTML = "<h2>Vos articles publiés (" + files.length + ")</h2>" +
+      files.map(f => {
+        const slug = f.name.replace(/\.md$/, "");
+        return '<div class="art"><span><b>' + slug.replace(/-/g, " ") + '</b></span>' +
+               '<a href="../' + slug + '" target="_blank" rel="noopener">Voir sur le site →</a></div>';
+      }).join("");
+  } catch {}
+}
+
+// ---------- photo ----------
+let imageData = null, imageName = "";
+$("drop").addEventListener("click", () => $("file").click());
+$("drop").addEventListener("dragover", e => { e.preventDefault(); $("drop").classList.add("over"); });
+$("drop").addEventListener("dragleave", () => $("drop").classList.remove("over"));
+$("drop").addEventListener("drop", e => { e.preventDefault(); $("drop").classList.remove("over"); handleFile(e.dataTransfer.files[0]); });
+$("file").addEventListener("change", e => handleFile(e.target.files[0]));
+
+function handleFile(f) {
+  if (!f || !f.type.startsWith("image/")) return;
+  imageName = slugify(f.name.replace(/\.[^.]+$/, "")) + (f.type.includes("png") ? ".png" : ".jpg");
+  const rd = new FileReader();
+  rd.onload = () => {
+    imageData = rd.result.split(",")[1];
+    $("preview").src = rd.result;
+    $("preview").style.display = "block";
+    $("dropTxt").textContent = "✅ Photo prête — cliquez pour en choisir une autre";
+  };
+  rd.readAsDataURL(f);
+}
+
+// ---------- publication ----------
+$("publish").addEventListener("click", async () => {
+  const title = $("title").value.trim(), desc = $("desc").value.trim(),
+        tag = $("tag").value.trim(), body = $("body").value.trim();
+  hide($("formMsg"));
+  if (!title || !desc || !tag || !body) {
+    show($("formMsg"), "err", "Merci de remplir le titre, le résumé, la catégorie et le texte.");
+    window.scrollTo({ top: 0, behavior: "smooth" }); return;
+  }
+  const btn = $("publish");
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Publication en cours…';
+
+  try {
+    const slug = slugify(title);
+    let imgPath = "img/opt/hero.jpg";
+
+    if (imageData) {
+      imgPath = "img/uploads/" + slug + imageName.slice(imageName.lastIndexOf("."));
+      const up = await api("/contents/" + imgPath, {
+        method: "PUT",
+        body: JSON.stringify({ message: "Photo : " + slug, content: imageData })
+      });
+      if (!up.ok && up.status !== 422) throw new Error("photo");
+    }
+
+    // corps : paragraphes et sous-titres
+    const html = body.split(/\n\s*\n/).map(p => {
+      p = p.trim();
+      if (!p) return "";
+      if (p.startsWith("####")) return "<h4>" + p.replace(/^#+\s*/, "") + "</h4>";
+      return "<p>" + p.replace(/\n/g, "<br>") + "</p>";
+    }).filter(Boolean).join("\n");
+
+    const date = new Date().toISOString().slice(0, 10);
+    const md = '---\ntitle: "' + title.replace(/"/g, "'") + '"\n' +
+               'description: "' + desc.replace(/"/g, "'") + '"\n' +
+               'date: ' + date + '\n' +
+               'tag: "' + tag.replace(/"/g, "'") + '"\n' +
+               'couleur: "' + $("color").value + '"\n' +
+               'image: "' + imgPath + '"\n' +
+               'alt: "' + ($("alt").value.trim() || title).replace(/"/g, "'") + '"\n---\n' + html + "\n";
+
+    const r = await api("/contents/content/blog/" + slug + ".md", {
+      method: "PUT",
+      body: JSON.stringify({ message: "Nouvel article : " + title, content: b64(md) })
+    });
+    if (!r.ok) {
+      const e = await r.json();
+      throw new Error(e.message || "publication");
+    }
+
+    $("seeArticle").href = "../" + slug;
+    $("editor").style.display = "none";
+    $("success").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (err) {
+    show($("formMsg"), "err",
+      String(err.message).includes("sha") || String(err.message).includes("exists")
+        ? "Un article porte déjà ce titre. Changez légèrement le titre et réessayez."
+        : "La publication n'a pas fonctionné. Vérifiez votre connexion internet et réessayez.");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } finally {
+    btn.disabled = false; btn.innerHTML = "🌱&nbsp;&nbsp;Publier mon article";
+  }
+});
+
+$("again").addEventListener("click", () => {
+  ["title", "desc", "body", "alt"].forEach(id => $(id).value = "");
+  imageData = null;
+  $("preview").style.display = "none";
+  $("dropTxt").textContent = "📷 Cliquez ici ou glissez votre photo";
+  $("success").style.display = "none";
+  $("editor").style.display = "block";
+  loadArticles();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// connexion automatique si déjà connectée
+if (TOKEN) {
+  api("").then(r => { if (r.ok) enter(); else localStorage.removeItem(KEY); }).catch(() => {});
+}
+</script>
 </body>
 </html>
