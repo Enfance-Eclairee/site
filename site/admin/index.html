@@ -213,7 +213,7 @@ let TOKEN = localStorage.getItem(KEY) || "";
 /* Coffre-fort : la cle d acces au site est chiffree ici.
    Seul le mot de passe de Jacqueline permet de la dechiffrer, dans son navigateur.
    Sans le mot de passe, ce texte est inutilisable. */
-const COFFRE = "__COFFRE__";
+const COFFRE = "KEzohJFSR6quAqtbD4BPcKTsn3oCHurg99yspQ8kFWv126ejU+kPbxuH7dGsikskummOLM2BNOYLwDKaihDxUulYPb6gajY181qIyXDToB/ydYkV";
 
 async function ouvrirCoffre(motDePasse) {
   const raw = Uint8Array.from(atob(COFFRE), c => c.charCodeAt(0));
