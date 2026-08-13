@@ -17,24 +17,25 @@
 body{font-family:'Karla',sans-serif;background:var(--cream);color:#3B3124;line-height:1.6;font-size:16px}
 h1,h2,h3{font-family:'Quicksand',sans-serif;font-weight:600;color:var(--marron-deep);line-height:1.2}
 em.script{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sauge);font-size:1.15em}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--olive);color:#FBF8F0;font-family:'Karla',sans-serif;font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:.25s;box-shadow:0 14px 30px -14px rgba(85,103,63,.55)}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--olive);color:#FBF8F0;font-family:'Karla',sans-serif;font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:.25s;box-shadow:0 14px 30px -14px rgba(85,103,63,.55)}
 .btn:hover{background:var(--olive-deep);transform:translateY(-2px)}
 .btn:disabled{opacity:.55;cursor:wait;transform:none}
 .btn.ghost{background:none;color:var(--marron);border:1.6px solid rgba(110,82,58,.35);box-shadow:none}
 .btn.ghost:hover{background:rgba(110,82,58,.07)}
-.btn.rose{background:var(--rose-deep);box-shadow:0 14px 30px -14px rgba(192,117,90,.6)}
 
-/* --- barre du haut --- */
-.top{background:var(--white);border-bottom:1px solid rgba(110,82,58,.12);padding:16px 0;position:sticky;top:0;z-index:20}
+.top{background:var(--white);border-bottom:1px solid rgba(110,82,58,.12);padding:14px 0;position:sticky;top:0;z-index:20}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1100px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{width:40px}
-.brand b{display:block;font-family:'Quicksand',sans-serif;font-size:18px;color:var(--marron-deep)}
+.brand img{width:38px}
+.brand b{display:block;font-family:'Quicksand',sans-serif;font-size:17px;color:var(--marron-deep)}
 .brand small{font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--sauge)}
 .logout{background:none;border:none;cursor:pointer;font-family:'Karla';font-size:13.5px;color:#98876E;text-decoration:underline}
 
-/* --- connexion --- */
+.tabs{display:flex;gap:10px;justify-content:center;margin:30px 0 28px;flex-wrap:wrap}
+.tab{background:var(--white);border:1.6px solid rgba(110,82,58,.18);border-radius:100px;padding:12px 26px;font-family:'Karla';font-weight:700;font-size:14.5px;color:var(--marron);cursor:pointer;transition:.25s}
+.tab.on{background:var(--olive);border-color:var(--olive);color:#fff}
+
 .login{min-height:100vh;display:grid;place-items:center;padding:30px 20px}
 .login-card{background:var(--white);border-radius:28px;padding:48px 44px;max-width:470px;width:100%;box-shadow:0 24px 60px -30px rgba(74,56,38,.3);text-align:center}
 .login-card img.crest{width:76px;margin:0 auto 20px;display:block}
@@ -49,12 +50,11 @@ em.script{font-family:'Dancing Script',cursive;font-style:normal;color:var(--sau
 .msg.err{display:block;background:var(--rose-soft);color:var(--rose-deep);font-weight:600}
 .msg.ok{display:block;background:var(--amande-soft);color:var(--olive-deep);font-weight:600}
 
-/* --- application --- */
-#app{display:none;padding:38px 0 70px}
-.page-title{text-align:center;margin-bottom:34px}
-.page-title h1{font-size:30px;margin-bottom:6px}
+#app{display:none;padding:20px 0 70px}
+.page-title{text-align:center;margin-bottom:26px}
+.page-title h1{font-size:29px;margin-bottom:6px}
 .page-title p{color:#8A7A64;font-size:15px}
-.card{background:var(--white);border-radius:24px;padding:36px 34px;box-shadow:0 18px 46px -30px rgba(74,56,38,.28);border:1px solid rgba(110,82,58,.08)}
+.card{background:var(--white);border-radius:24px;padding:34px 32px;box-shadow:0 18px 46px -30px rgba(74,56,38,.28);border:1px solid rgba(110,82,58,.08)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 textarea{resize:vertical;min-height:280px;line-height:1.7}
 .inline-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
@@ -64,24 +64,34 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 .mini-hint{font-size:12.5px;color:#98876E}
 .tips{background:var(--amande-soft);border-radius:16px;padding:16px 20px;font-size:13.5px;color:#5C4F3E;margin-bottom:22px}
 .tips b{color:var(--marron-deep)}
-.drop{border:2px dashed rgba(110,82,58,.28);border-radius:16px;padding:26px;text-align:center;cursor:pointer;transition:.25s;background:var(--cream)}
+.drop{border:2px dashed rgba(110,82,58,.28);border-radius:16px;padding:24px;text-align:center;cursor:pointer;transition:.25s;background:var(--cream)}
 .drop:hover,.drop.over{border-color:var(--sauge);background:#fff}
 .drop p{font-size:14px;color:#8A7A64}
 .drop img{max-height:150px;border-radius:12px;margin-top:12px}
 .actions{display:flex;gap:14px;align-items:center;margin-top:26px;flex-wrap:wrap}
-.list{margin-top:34px}
-.list h2{font-size:19px;margin-bottom:14px}
-.art{background:var(--white);border:1px solid rgba(110,82,58,.1);border-radius:16px;padding:14px 20px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.art b{font-family:'Quicksand';font-size:15px;color:var(--marron-deep)}
-.art small{color:#98876E;font-size:12.5px}
-.art a{font-size:13px;color:var(--olive);font-weight:700;text-decoration:none;white-space:nowrap}
+
+.art{background:var(--white);border:1px solid rgba(110,82,58,.1);border-radius:18px;padding:18px 22px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:.25s}
+.art:hover{box-shadow:0 14px 34px -26px rgba(74,56,38,.35)}
+.art-info b{display:block;font-family:'Quicksand';font-size:16px;color:var(--marron-deep);margin-bottom:3px}
+.art-info small{color:#98876E;font-size:12.5px}
+.art-badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:var(--amande-soft);color:var(--olive-deep);margin-right:8px}
+.art-btns{display:flex;gap:8px;flex-wrap:wrap;flex:none}
+.ab{border:1.5px solid rgba(110,82,58,.25);background:none;border-radius:100px;padding:8px 15px;font-family:'Karla';font-weight:700;font-size:12.5px;color:var(--marron);cursor:pointer;text-decoration:none;transition:.25s;white-space:nowrap;display:inline-flex;align-items:center}
+.ab:hover{background:var(--cream-2)}
+.ab.edit{border-color:var(--sauge);color:var(--olive)}
+.ab.edit:hover{background:var(--olive);color:#fff}
+.ab.del{border-color:rgba(192,117,90,.4);color:var(--rose-deep)}
+.ab.del:hover{background:var(--rose-deep);color:#fff}
+
 .done{text-align:center;padding:20px 0}
 .done .heart{font-size:38px;color:var(--rose-deep)}
 .done h2{font-size:25px;margin:10px 0 8px}
 .done p{color:#5C4F3E;margin-bottom:22px}
 .spin{display:inline-block;width:15px;height:15px;border:2.4px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
-@media(max-width:640px){.row{grid-template-columns:1fr}.card{padding:26px 20px}.login-card{padding:34px 24px}}
+.loader{text-align:center;padding:40px;color:#98876E}
+@media(max-width:700px){.row{grid-template-columns:1fr}.card{padding:26px 20px}.login-card{padding:34px 24px}
+  .art{flex-direction:column;align-items:flex-start}.art-btns{width:100%}}
 </style>
 </head>
 <body>
@@ -91,7 +101,7 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
   <div class="login-card">
     <img class="crest" src="../favicon.svg" alt="Enfance Éclairée">
     <h1>Espace de <em class="script">rédaction</em></h1>
-    <p class="sub">Bonjour Jacqueline ! Connectez-vous pour écrire et publier vos articles.</p>
+    <p class="sub">Bonjour Jacqueline ! Connectez-vous pour gérer vos articles.</p>
     <div class="msg" id="loginMsg"></div>
     <form id="loginForm">
       <div class="field">
@@ -117,10 +127,27 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 
 <div id="app">
   <div class="wrap">
-    <div id="editor">
+
+    <div class="tabs" id="tabs">
+      <button class="tab on" id="tabList">Mes articles</button>
+      <button class="tab" id="tabNew">Écrire un nouvel article</button>
+    </div>
+
+    <!-- ---------- LISTE ---------- -->
+    <div id="vueListe">
       <div class="page-title">
-        <h1>Écrire un nouvel <em class="script">article</em></h1>
-        <p>Remplissez les cases, cliquez sur Publier : votre article sera en ligne dans 2 minutes.</p>
+        <h1>Tous vos <em class="script">articles</em></h1>
+        <p>Consultez, modifiez ou supprimez vos articles publiés.</p>
+      </div>
+      <div class="msg" id="listMsg"></div>
+      <div id="liste"><div class="loader">Chargement de vos articles…</div></div>
+    </div>
+
+    <!-- ---------- ÉDITEUR ---------- -->
+    <div id="vueEditeur" style="display:none">
+      <div class="page-title">
+        <h1 id="edTitre">Écrire un nouvel <em class="script">article</em></h1>
+        <p id="edSous">Remplissez les cases, cliquez sur Publier : votre article sera en ligne dans 2 minutes.</p>
       </div>
 
       <div class="card">
@@ -152,9 +179,9 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
         </div>
 
         <div class="field">
-          <label>Photo de l'article</label>
+          <label>Photo de l'article <span style="text-transform:none;letter-spacing:0;font-weight:400">(en grand tout en haut)</span></label>
           <div class="drop" id="drop">
-            <p id="dropTxt">📷 Cliquez ici ou glissez votre photo</p>
+            <p id="dropTxt">Cliquez ici ou glissez votre photo</p>
             <img id="preview" style="display:none">
           </div>
           <input type="file" id="file" accept="image/*" hidden>
@@ -168,39 +195,41 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 
         <div class="tips">
           <b>Astuce :</b> pour créer un sous-titre dans votre texte, écrivez <b>####</b> juste devant la ligne.<br>
-          Exemple : <i>#### Pourquoi ça fonctionne si bien</i><br><br><b>Vos photos :</b> celle du haut (« Photo de l&rsquo;article ») s&rsquo;affiche en grand en haut de la page. Pour en mettre <b>dans le texte</b>, utilisez le bouton juste en dessous.
+          Exemple : <i>#### Pourquoi ça fonctionne si bien</i>
+          <br><br>
+          <b>Vos photos :</b> celle du haut s'affiche en grand en tête d'article. Pour en mettre <b>dans le texte</b>, utilisez le bouton ci-dessous.
         </div>
 
         <div class="field">
           <label for="body">Texte de l'article</label>
           <div class="inline-tools">
-            <button type="button" class="mini" id="addPhoto">Inserer une photo dans le texte</button>
-            <span class="mini-hint">Placez le curseur ou vous voulez la photo, puis cliquez</span>
+            <button type="button" class="mini" id="addPhoto">Insérer une photo dans le texte</button>
+            <span class="mini-hint">Placez le curseur où vous voulez la photo, puis cliquez</span>
           </div>
           <textarea id="body" placeholder="Écrivez librement ici…&#10;&#10;Laissez une ligne vide entre vos paragraphes.&#10;&#10;#### Un sous-titre&#10;&#10;La suite de votre texte…" required></textarea>
         </div>
 
         <div class="actions">
-          <button class="btn" id="publish">🌱&nbsp;&nbsp;Publier mon article</button>
+          <button class="btn" id="publish">Publier mon article</button>
+          <button class="btn ghost" id="cancelEdit" style="display:none">Annuler</button>
           <a class="btn ghost" href="../blog" target="_blank" rel="noopener">Voir le blog</a>
         </div>
       </div>
-
-      <div class="list" id="list"></div>
     </div>
 
-    <!-- écran de confirmation -->
+    <!-- ---------- CONFIRMATION ---------- -->
     <div id="success" style="display:none">
       <div class="card done">
         <div class="heart">♥</div>
-        <h2>C'est publié !</h2>
-        <p>Votre article sera visible sur le blog dans environ 2 minutes.<br>Le site se met à jour tout seul.</p>
+        <h2 id="okTitre">C'est publié !</h2>
+        <p id="okTexte">Votre article sera visible sur le blog dans environ 2 minutes.<br>Le site se met à jour tout seul.</p>
         <div class="actions" style="justify-content:center">
           <a class="btn" id="seeArticle" target="_blank" rel="noopener">Voir mon article</a>
-          <button class="btn ghost" id="again">Écrire un autre article</button>
+          <button class="btn ghost" id="backList">Retour à mes articles</button>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -210,9 +239,8 @@ const API  = "https://api.github.com/repos/" + REPO;
 const KEY  = "ee_token";
 let TOKEN = localStorage.getItem(KEY) || "";
 
-/* Coffre-fort : la cle d acces au site est chiffree ici.
-   Seul le mot de passe de Jacqueline permet de la dechiffrer, dans son navigateur.
-   Sans le mot de passe, ce texte est inutilisable. */
+/* Coffre-fort : la clé d'accès au site est chiffrée ici.
+   Seul le mot de passe de Jacqueline permet de la déchiffrer, dans son navigateur. */
 const COFFRE = "KEzohJFSR6quAqtbD4BPcKTsn3oCHurg99yspQ8kFWv126ejU+kPbxuH7dGsikskummOLM2BNOYLwDKaihDxUulYPb6gajY181qIyXDToB/ydYkV";
 
 async function ouvrirCoffre(motDePasse) {
@@ -222,24 +250,19 @@ async function ouvrirCoffre(motDePasse) {
   const cle = await crypto.subtle.deriveKey(
     { name: "PBKDF2", salt: sel, iterations: 600000, hash: "SHA-256" },
     base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
-  const clair = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, cle, data);
-  return new TextDecoder().decode(clair);
+  return new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv }, cle, data));
 }
 
 const $ = id => document.getElementById(id);
-const show = (el, cls, txt) => { el.className = "msg " + cls; el.textContent = txt; };
+const show = (el, cls, txt) => { el.className = "msg " + cls; el.innerHTML = txt; };
 const hide = el => { el.className = "msg"; el.textContent = ""; };
+const b64 = str => btoa(unescape(encodeURIComponent(str)));
+const deb64 = str => decodeURIComponent(escape(atob(str.replace(/\n/g, ""))));
 
 function api(path, opts = {}) {
-  return fetch(API + path, {
-    ...opts,
-    headers: { "Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json", ...(opts.headers || {}) }
-  });
+  return fetch(API + path, { ...opts,
+    headers: { "Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json", ...(opts.headers || {}) } });
 }
-
-// encodage base64 compatible accents
-const b64 = str => btoa(unescape(encodeURIComponent(str)));
-
 function slugify(s) {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
     .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "article";
@@ -255,44 +278,184 @@ $("loginForm").addEventListener("submit", async e => {
     const r = await api("");
     if (!r.ok) throw new Error();
     localStorage.setItem(KEY, TOKEN);
-    enter();
+    entrer();
   } catch {
     show($("loginMsg"), "err", "Mot de passe incorrect. Vérifiez les majuscules et les tirets.");
     btn.disabled = false; btn.textContent = "Me connecter";
   }
 });
-
 $("logout").addEventListener("click", () => { localStorage.removeItem(KEY); location.reload(); });
 
-function enter() {
+function entrer() {
+  if (dejaEntre) return;
+  dejaEntre = true;
   $("login").style.display = "none";
   $("top").style.display = "block";
   $("app").style.display = "block";
-  loadArticles();
+  chargerListe();
 }
 
-// ---------- liste des articles existants ----------
-async function loadArticles() {
+// ---------- navigation ----------
+function vue(nom) {
+  $("vueListe").style.display   = nom === "liste"   ? "block" : "none";
+  $("vueEditeur").style.display = nom === "editeur" ? "block" : "none";
+  $("success").style.display    = nom === "succes"  ? "block" : "none";
+  $("tabs").style.display       = nom === "succes"  ? "none"  : "flex";
+  $("tabList").classList.toggle("on", nom === "liste");
+  $("tabNew").classList.toggle("on", nom === "editeur");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+$("tabList").addEventListener("click", () => { vue("liste"); chargerListe(); });
+$("tabNew").addEventListener("click", () => nouvelArticle());
+$("backList").addEventListener("click", () => { vue("liste"); chargerListe(); });
+$("cancelEdit").addEventListener("click", () => vue("liste"));
+
+// ---------- liste des articles ----------
+let articles = [], chargementEnCours = false, dejaEntre = false;
+async function chargerListe() {
+  if (chargementEnCours) return;
+  chargementEnCours = true;
+  $("liste").innerHTML = '<div class="loader">Chargement de vos articles…</div>';
   try {
     const r = await api("/contents/content/blog");
-    if (!r.ok) return;
-    const files = (await r.json()).filter(f => f.name.endsWith(".md"));
-    $("list").innerHTML = "<h2>Vos articles publiés (" + files.length + ")</h2>" +
-      files.map(f => {
-        const slug = f.name.replace(/\.md$/, "");
-        return '<div class="art"><span><b>' + slug.replace(/-/g, " ") + '</b></span>' +
-               '<a href="../' + slug + '" target="_blank" rel="noopener">Voir sur le site →</a></div>';
-      }).join("");
-  } catch {}
+    if (!r.ok) throw new Error();
+    const fichiers = (await r.json()).filter(f => f.name.endsWith(".md"));
+    const trouves = [];
+    for (const f of fichiers) {
+      const j = await (await api("/contents/content/blog/" + f.name)).json();
+      const md = deb64(j.content);
+      const m = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      const meta = {};
+      if (m) m[1].split("\n").forEach(l => {
+        const k = l.match(/^(\w+):\s*"?(.*?)"?\s*$/);
+        if (k) meta[k[1]] = k[2];
+      });
+      trouves.push({ nom: f.name, slug: f.name.replace(/\.md$/, ""), sha: j.sha, meta, corps: m ? m[2] : "" });
+    }
+    trouves.sort((a, b) => (b.meta.date || "").localeCompare(a.meta.date || ""));
+    articles = trouves;
+    afficherListe();
+  } catch {
+    $("liste").innerHTML = '<div class="loader">Impossible de charger la liste. Vérifiez votre connexion internet.</div>';
+  } finally {
+    chargementEnCours = false;
+  }
 }
 
-// ---------- photo ----------
-let imageData = null, imageName = "";
+function dateFr(d) {
+  if (!d) return "";
+  const p = d.split("-");
+  const mois = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+  return "Le " + parseInt(p[2]) + " " + mois[parseInt(p[1]) - 1] + " " + p[0];
+}
+
+function afficherListe() {
+  $("liste").innerHTML = articles.map((a, i) =>
+    '<div class="art"><div class="art-info"><b>' + (a.meta.title || a.slug) + '</b>' +
+    '<small><span class="art-badge">' + (a.meta.tag || "Article") + '</span>' + dateFr(a.meta.date) + '</small></div>' +
+    '<div class="art-btns">' +
+      '<a class="ab" href="../' + a.slug + '" target="_blank" rel="noopener">Voir</a>' +
+      '<button class="ab edit" data-i="' + i + '">Modifier</button>' +
+      '<button class="ab del" data-d="' + i + '">Supprimer</button>' +
+    '</div></div>').join("") || '<div class="loader">Aucun article pour le moment.</div>';
+
+  $("liste").querySelectorAll("[data-i]").forEach(b => b.addEventListener("click", () => modifierArticle(+b.dataset.i)));
+  $("liste").querySelectorAll("[data-d]").forEach(b => b.addEventListener("click", () => supprimerArticle(+b.dataset.d)));
+}
+
+// ---------- suppression ----------
+async function supprimerArticle(i) {
+  const a = articles[i];
+  if (!confirm("Voulez-vous vraiment supprimer l'article :\n\n« " + (a.meta.title || a.slug) + " »\n\nIl disparaîtra du blog dans 2 minutes.")) return;
+  hide($("listMsg"));
+  try {
+    const r = await api("/contents/content/blog/" + a.nom, {
+      method: "DELETE",
+      body: JSON.stringify({ message: "Suppression de l article : " + a.slug, sha: a.sha }) });
+    if (!r.ok) throw new Error();
+    show($("listMsg"), "ok", "Article supprimé. Il disparaîtra du blog dans environ 2 minutes.");
+    chargerListe();
+  } catch {
+    show($("listMsg"), "err", "La suppression n'a pas fonctionné. Réessayez dans un instant.");
+  }
+}
+
+// ---------- édition ----------
+let modeEdition = null;
+let blocsSpeciaux = [];
+
+function corpsVersTexte(html) {
+  blocsSpeciaux = [];
+  return html.split(/\n(?=<)/).map(l => {
+    l = l.trim();
+    if (!l) return "";
+    let m = l.match(/^<h4>([\s\S]*?)<\/h4>$/);
+    if (m) return "#### " + m[1];
+    m = l.match(/^<figure class="art-img"><img src="([^"]*)"[^>]*><\/figure>$/);
+    if (m) { blocsSpeciaux.push(l); return "[photo enregistrée " + blocsSpeciaux.length + "]"; }
+    m = l.match(/^<p>([\s\S]*?)<\/p>$/);
+    if (m) return m[1].replace(/<br\s*\/?>/g, "\n");
+    blocsSpeciaux.push(l);
+    return "[encadré " + blocsSpeciaux.length + "]";
+  }).filter(Boolean).join("\n\n");
+}
+
+function modifierArticle(i) {
+  const a = articles[i];
+  modeEdition = { nom: a.nom, sha: a.sha, slug: a.slug, image: a.meta.image, date: a.meta.date };
+  $("title").value = a.meta.title || "";
+  $("desc").value  = a.meta.description || "";
+  $("tag").value   = a.meta.tag || "";
+  $("color").value = ["sauge","ocre","rose"].indexOf(a.meta.couleur) >= 0 ? a.meta.couleur : "sauge";
+  $("alt").value   = a.meta.alt || "";
+  $("body").value  = corpsVersTexte(a.corps);
+  imageData = null; inlinePhotos = [];
+  $("preview").src = "../" + (a.meta.image || "");
+  $("preview").style.display = "block";
+  $("dropTxt").textContent = "Photo actuelle — cliquez pour la remplacer";
+  $("edTitre").innerHTML = 'Modifier votre <em class="script">article</em>';
+  $("edSous").textContent = "Changez ce que vous voulez, puis enregistrez.";
+  $("publish").textContent = "Enregistrer les modifications";
+  $("cancelEdit").style.display = "inline-flex";
+  hide($("formMsg"));
+  vue("editeur");
+}
+
+function nouvelArticle() {
+  modeEdition = null; blocsSpeciaux = [];
+  ["title","desc","alt","body"].forEach(id => $(id).value = "");
+  $("tag").value = "Éveil"; $("color").value = "sauge";
+  imageData = null; inlinePhotos = [];
+  $("preview").style.display = "none";
+  $("dropTxt").textContent = "Cliquez ici ou glissez votre photo";
+  $("edTitre").innerHTML = 'Écrire un nouvel <em class="script">article</em>';
+  $("edSous").textContent = "Remplissez les cases, cliquez sur Publier : votre article sera en ligne dans 2 minutes.";
+  $("publish").textContent = "Publier mon article";
+  $("cancelEdit").style.display = "none";
+  hide($("formMsg"));
+  vue("editeur");
+}
+
+// ---------- photos ----------
+let imageData = null, imageExt = ".jpg";
 $("drop").addEventListener("click", () => $("file").click());
 $("drop").addEventListener("dragover", e => { e.preventDefault(); $("drop").classList.add("over"); });
 $("drop").addEventListener("dragleave", () => $("drop").classList.remove("over"));
-$("drop").addEventListener("drop", e => { e.preventDefault(); $("drop").classList.remove("over"); handleFile(e.dataTransfer.files[0]); });
-$("file").addEventListener("change", e => handleFile(e.target.files[0]));
+$("drop").addEventListener("drop", e => { e.preventDefault(); $("drop").classList.remove("over"); lireFichier(e.dataTransfer.files[0]); });
+$("file").addEventListener("change", e => lireFichier(e.target.files[0]));
+
+function lireFichier(f) {
+  if (!f || !f.type.startsWith("image/")) return;
+  imageExt = f.type.indexOf("png") >= 0 ? ".png" : ".jpg";
+  const rd = new FileReader();
+  rd.onload = () => {
+    imageData = rd.result.split(",")[1];
+    $("preview").src = rd.result;
+    $("preview").style.display = "block";
+    $("dropTxt").textContent = "Photo prête — cliquez pour en choisir une autre";
+  };
+  rd.readAsDataURL(f);
+}
 
 let inlinePhotos = [];
 $("addPhoto").addEventListener("click", () => $("fileInline").click());
@@ -300,37 +463,24 @@ $("fileInline").addEventListener("change", e => {
   const f = e.target.files[0];
   if (!f || !f.type.startsWith("image/")) return;
   const btn = $("addPhoto");
-  btn.disabled = true; btn.textContent = "Chargement de la photo...";
+  btn.disabled = true; btn.textContent = "Chargement de la photo…";
   const rd = new FileReader();
   rd.onload = () => {
     const n = inlinePhotos.length + 1;
-    inlinePhotos.push({ data: rd.result.split(",")[1], ext: f.type.includes("png") ? ".png" : ".jpg", marker: "[photo" + n + "]" });
+    inlinePhotos.push({ data: rd.result.split(",")[1], ext: f.type.indexOf("png") >= 0 ? ".png" : ".jpg", marker: "[photo" + n + "]" });
     const ta = $("body"), pos = ta.selectionStart, txt = ta.value;
     const bloc = (pos > 0 && txt[pos-1] !== "\n" ? "\n\n" : "") + "[photo" + n + "]\n\n";
     ta.value = txt.slice(0, pos) + bloc + txt.slice(pos);
     ta.focus(); ta.selectionStart = ta.selectionEnd = pos + bloc.length;
-    btn.disabled = false; btn.textContent = "Inserer une photo dans le texte";
-    show($("formMsg"), "ok", "Photo " + n + " ajoutee dans votre texte. Elle apparaitra a cet endroit dans l article.");
+    btn.disabled = false; btn.textContent = "Insérer une photo dans le texte";
+    show($("formMsg"), "ok", "Photo " + n + " ajoutée dans votre texte.");
     setTimeout(() => hide($("formMsg")), 4000);
   };
   rd.readAsDataURL(f);
   e.target.value = "";
 });
 
-function handleFile(f) {
-  if (!f || !f.type.startsWith("image/")) return;
-  imageName = slugify(f.name.replace(/\.[^.]+$/, "")) + (f.type.includes("png") ? ".png" : ".jpg");
-  const rd = new FileReader();
-  rd.onload = () => {
-    imageData = rd.result.split(",")[1];
-    $("preview").src = rd.result;
-    $("preview").style.display = "block";
-    $("dropTxt").textContent = "✅ Photo prête — cliquez pour en choisir une autre";
-  };
-  rd.readAsDataURL(f);
-}
-
-// ---------- publication ----------
+// ---------- publier / enregistrer ----------
 $("publish").addEventListener("click", async () => {
   const title = $("title").value.trim(), desc = $("desc").value.trim(),
         tag = $("tag").value.trim(), body = $("body").value.trim();
@@ -339,43 +489,40 @@ $("publish").addEventListener("click", async () => {
     show($("formMsg"), "err", "Merci de remplir le titre, le résumé, la catégorie et le texte.");
     window.scrollTo({ top: 0, behavior: "smooth" }); return;
   }
-  const btn = $("publish");
-  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Publication en cours…';
+  const btn = $("publish"), libelle = btn.textContent;
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Enregistrement…';
 
   try {
-    const slug = slugify(title);
-    let imgPath = "img/opt/hero.jpg";
+    const slug = modeEdition ? modeEdition.slug : slugify(title);
+    let imgPath = modeEdition ? (modeEdition.image || "img/opt/hero.jpg") : "img/opt/hero.jpg";
 
     if (imageData) {
-      imgPath = "img/uploads/" + slug + imageName.slice(imageName.lastIndexOf("."));
+      imgPath = "img/uploads/" + slug + "-" + Date.now() + imageExt;
       const up = await api("/contents/" + imgPath, {
-        method: "PUT",
-        body: JSON.stringify({ message: "Photo : " + slug, content: imageData })
-      });
-      if (!up.ok && up.status !== 422) throw new Error("photo");
+        method: "PUT", body: JSON.stringify({ message: "Photo : " + slug, content: imageData }) });
+      if (!up.ok) throw new Error("photo");
     }
 
     for (let i = 0; i < inlinePhotos.length; i++) {
       const ph = inlinePhotos[i];
-      ph.path = "img/uploads/" + slug + "-photo" + (i + 1) + ph.ext;
+      ph.path = "img/uploads/" + slug + "-txt" + Date.now() + "-" + (i + 1) + ph.ext;
       const r2 = await api("/contents/" + ph.path, {
-        method: "PUT",
-        body: JSON.stringify({ message: "Photo article : " + slug, content: ph.data })
-      });
-      if (!r2.ok && r2.status !== 422) throw new Error("photo");
+        method: "PUT", body: JSON.stringify({ message: "Photo article : " + slug, content: ph.data }) });
+      if (!r2.ok) throw new Error("photo");
     }
 
-    // corps : paragraphes et sous-titres
     const html = body.split(/\n\s*\n/).map(p => {
       p = p.trim();
       if (!p) return "";
-      if (p.startsWith("####")) return "<h4>" + p.replace(/^#+\s*/, "") + "</h4>";
-      const ph = inlinePhotos.find(x => x.marker === p);
-      if (ph) return '<figure class="art-img"><img src="' + ph.path + '" alt="' + (($("alt").value.trim() || title).replace(/"/g, "'")) + '"></figure>';
+      if (p.indexOf("####") === 0) return "<h4>" + p.replace(/^#+\s*/, "") + "</h4>";
+      for (const ph of inlinePhotos) if (ph.marker === p)
+        return '<figure class="art-img"><img src="' + ph.path + '" alt="' + (($("alt").value.trim() || title).replace(/"/g, "'")) + '"></figure>';
+      const bs = p.match(/^\[(?:encadré|photo enregistrée) (\d+)\]$/);
+      if (bs && blocsSpeciaux[+bs[1] - 1]) return blocsSpeciaux[+bs[1] - 1];
       return "<p>" + p.replace(/\n/g, "<br>") + "</p>";
     }).filter(Boolean).join("\n");
 
-    const date = new Date().toISOString().slice(0, 10);
+    const date = modeEdition && modeEdition.date ? modeEdition.date : new Date().toISOString().slice(0, 10);
     const md = '---\ntitle: "' + title.replace(/"/g, "'") + '"\n' +
                'description: "' + desc.replace(/"/g, "'") + '"\n' +
                'date: ' + date + '\n' +
@@ -384,45 +531,31 @@ $("publish").addEventListener("click", async () => {
                'image: "' + imgPath + '"\n' +
                'alt: "' + ($("alt").value.trim() || title).replace(/"/g, "'") + '"\n---\n' + html + "\n";
 
-    const r = await api("/contents/content/blog/" + slug + ".md", {
-      method: "PUT",
-      body: JSON.stringify({ message: "Nouvel article : " + title, content: b64(md) })
-    });
-    if (!r.ok) {
-      const e = await r.json();
-      throw new Error(e.message || "publication");
-    }
+    const corps = { message: (modeEdition ? "Modification : " : "Nouvel article : ") + title, content: b64(md) };
+    if (modeEdition) corps.sha = modeEdition.sha;
+
+    const r = await api("/contents/content/blog/" + slug + ".md", { method: "PUT", body: JSON.stringify(corps) });
+    if (!r.ok) { const e = await r.json(); throw new Error(e.message || "publication"); }
 
     $("seeArticle").href = "../" + slug;
-    $("editor").style.display = "none";
-    $("success").style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    $("okTitre").textContent = modeEdition ? "Modifications enregistrées !" : "C'est publié !";
+    $("okTexte").innerHTML = (modeEdition ? "Votre article mis à jour" : "Votre article") +
+      " sera visible sur le blog dans environ 2 minutes.<br>Le site se met à jour tout seul.";
+    vue("succes");
   } catch (err) {
+    const m = String(err.message);
     show($("formMsg"), "err",
-      String(err.message).includes("sha") || String(err.message).includes("exists")
+      (m.indexOf("sha") >= 0 || m.indexOf("exists") >= 0)
         ? "Un article porte déjà ce titre. Changez légèrement le titre et réessayez."
-        : "La publication n'a pas fonctionné. Vérifiez votre connexion internet et réessayez.");
+        : "L'enregistrement n'a pas fonctionné. Vérifiez votre connexion internet et réessayez.");
     window.scrollTo({ top: 0, behavior: "smooth" });
   } finally {
-    btn.disabled = false; btn.innerHTML = "🌱&nbsp;&nbsp;Publier mon article";
+    btn.disabled = false; btn.textContent = libelle;
   }
 });
 
-$("again").addEventListener("click", () => {
-  ["title", "desc", "body", "alt"].forEach(id => $(id).value = "");
-  imageData = null; inlinePhotos = [];
-  $("preview").style.display = "none";
-  $("dropTxt").textContent = "📷 Cliquez ici ou glissez votre photo";
-  $("success").style.display = "none";
-  $("editor").style.display = "block";
-  loadArticles();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// connexion automatique si déjà connectée
-if (TOKEN) {
-  api("").then(r => { if (r.ok) enter(); else localStorage.removeItem(KEY); }).catch(() => {});
-}
+// connexion automatique
+if (TOKEN) api("").then(r => { if (r.ok && !dejaEntre) entrer(); else if (!r.ok) localStorage.removeItem(KEY); }).catch(() => {});
 </script>
 </body>
 </html>
