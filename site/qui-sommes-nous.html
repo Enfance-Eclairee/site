@@ -590,8 +590,8 @@ footer ul a:hover{color:#fff}
   .cta-band:before{background:rgba(251,248,240,.92)}
   .hero-photo img{height:440px}
   .float-card{right:6px}
-  .nav-links{position:fixed;inset:0 0 auto 0;top:0;background:var(--cream);flex-direction:column;padding:110px 40px 44px;gap:24px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.22,.61,.36,1);box-shadow:0 30px 60px -30px rgba(0,0,0,.3);z-index:-1}
-  .nav-links.open{transform:none}
+  .nav-links{position:fixed;inset:0 0 auto 0;top:0;background:var(--cream);flex-direction:column;padding:110px 40px 44px;gap:24px;transform:translateY(-100%);visibility:hidden;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s linear .45s;box-shadow:0 30px 60px -30px rgba(0,0,0,.3);z-index:-1}
+  .nav-links.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s}
   .burger{display:block;z-index:5}
   .burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
