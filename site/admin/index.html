@@ -83,6 +83,12 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 .ab.del{border-color:rgba(192,117,90,.4);color:var(--rose-deep)}
 .ab.del:hover{background:var(--rose-deep);color:#fff}
 
+.pagi{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:28px;flex-wrap:wrap}
+.pagi button{min-width:42px;height:42px;padding:0 14px;border-radius:100px;border:1.6px solid rgba(110,82,58,.2);background:var(--white);font-family:'Karla',sans-serif;font-weight:700;font-size:14px;color:var(--marron);cursor:pointer;transition:.25s}
+.pagi button:hover:not(:disabled){background:var(--cream-2);border-color:var(--sauge)}
+.pagi button.on{background:var(--olive);border-color:var(--olive);color:#fff}
+.pagi button:disabled{opacity:.4;cursor:default}
+.pagi .infos{font-size:13px;color:#98876E;width:100%;text-align:center;margin-top:6px}
 .done{text-align:center;padding:20px 0}
 .done .heart{font-size:38px;color:var(--rose-deep)}
 .done h2{font-size:25px;margin:10px 0 8px}
@@ -141,6 +147,7 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
       </div>
       <div class="msg" id="listMsg"></div>
       <div id="liste"><div class="loader">Chargement de vos articles…</div></div>
+      <div class="pagi" id="pagiListe"></div>
     </div>
 
     <!-- ---------- ÉDITEUR ---------- -->
@@ -349,15 +356,40 @@ function dateFr(d) {
   return "Le " + parseInt(p[2]) + " " + mois[parseInt(p[1]) - 1] + " " + p[0];
 }
 
+let pageListe = 1;
+const PAR_PAGE = 10;
+
 function afficherListe() {
-  $("liste").innerHTML = articles.map((a, i) =>
-    '<div class="art"><div class="art-info"><b>' + (a.meta.title || a.slug) + '</b>' +
+  const total = Math.max(1, Math.ceil(articles.length / PAR_PAGE));
+  if (pageListe > total) pageListe = total;
+  const debut = (pageListe - 1) * PAR_PAGE;
+  const visibles = articles.slice(debut, debut + PAR_PAGE);
+
+  $("liste").innerHTML = visibles.map((a, k) => { const i = debut + k; return '<div class="art"><div class="art-info"><b>' + (a.meta.title || a.slug) + '</b>' +
     '<small><span class="art-badge">' + (a.meta.tag || "Article") + '</span>' + dateFr(a.meta.date) + '</small></div>' +
     '<div class="art-btns">' +
       '<a class="ab" href="../' + a.slug + '" target="_blank" rel="noopener">Voir</a>' +
       '<button class="ab edit" data-i="' + i + '">Modifier</button>' +
       '<button class="ab del" data-d="' + i + '">Supprimer</button>' +
-    '</div></div>').join("") || '<div class="loader">Aucun article pour le moment.</div>';
+    '</div></div>'; }).join("") || '<div class="loader">Aucun article pour le moment.</div>';
+
+  // navigation entre les pages
+  const z = $("pagiListe");
+  if (articles.length <= PAR_PAGE) { z.innerHTML = ""; }
+  else {
+    let html = '<button ' + (pageListe === 1 ? 'disabled' : '') + ' data-p="' + (pageListe-1) + '">‹ Précédent</button>';
+    for (let n = 1; n <= total; n++)
+      html += '<button class="' + (n === pageListe ? 'on' : '') + '" data-p="' + n + '">' + n + '</button>';
+    html += '<button ' + (pageListe === total ? 'disabled' : '') + ' data-p="' + (pageListe+1) + '">Suivant ›</button>';
+    html += '<span class="infos">Page ' + pageListe + ' sur ' + total + ' · ' + articles.length + ' articles</span>';
+    z.innerHTML = html;
+    z.querySelectorAll('button[data-p]').forEach(bt => bt.addEventListener('click', () => {
+      const n = +bt.dataset.p;
+      if (n < 1 || n > total) return;
+      pageListe = n; afficherListe();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+  }
 
   $("liste").querySelectorAll("[data-i]").forEach(b => b.addEventListener("click", () => modifierArticle(+b.dataset.i)));
   $("liste").querySelectorAll("[data-d]").forEach(b => b.addEventListener("click", () => supprimerArticle(+b.dataset.d)));

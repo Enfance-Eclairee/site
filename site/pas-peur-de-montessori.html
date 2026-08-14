@@ -361,6 +361,13 @@ nav .wrap{max-width:1280px}
 .sugg-card b{display:block;font-family:'Quicksand',sans-serif;font-size:14.5px;color:var(--marron-deep);line-height:1.3;margin-bottom:6px}
 .sugg-card small{font-size:11.5px;color:var(--sauge);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
 
+.pagi{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:44px;flex-wrap:wrap}
+.pagi button{min-width:44px;height:44px;padding:0 14px;border-radius:100px;border:1.6px solid rgba(110,82,58,.2);background:var(--white);font-family:'Karla',sans-serif;font-weight:700;font-size:14.5px;color:var(--marron);cursor:pointer;transition:.25s}
+.pagi button:hover:not(:disabled){background:var(--cream-2);border-color:var(--sauge)}
+.pagi button.on{background:var(--olive);border-color:var(--olive);color:#fff}
+.pagi button:disabled{opacity:.4;cursor:default}
+.pagi .infos{font-size:13.5px;color:#98876E;width:100%;text-align:center;margin-top:6px}
+
 /* ---------- catalogue ---------- */
 .cat-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
 .cat-card{width:calc(33.333% - 15px);background:var(--white);border-radius:var(--radius);padding:30px 26px;border:1px solid rgba(110,82,58,.1);box-shadow:0 14px 36px -26px rgba(74,56,38,.28);display:flex;flex-direction:column;transition:transform .35s;overflow:hidden}
@@ -941,6 +948,34 @@ if(fOv){
   document.getElementById('ficheClose').addEventListener('click',fHide);
   fOv.addEventListener('click',e=>{if(e.target===fOv)fHide()});
   addEventListener('keydown',e=>{if(e.key==='Escape')fHide()});
+}
+
+// pagination du blog : 10 articles par page, du plus récent au plus ancien
+const pagiZone = document.getElementById('pagiBlog');
+if (pagiZone) {
+  const cartes = [...document.querySelectorAll('.blog-grid .blog-card')];
+  const PAR_PAGE = 10, total = Math.ceil(cartes.length / PAR_PAGE);
+  if (total > 1) {
+    let page = 1;
+    const afficher = () => {
+      cartes.forEach((c, i) => {
+        c.style.display = (i >= (page-1)*PAR_PAGE && i < page*PAR_PAGE) ? '' : 'none';
+      });
+      let html = '<button ' + (page === 1 ? 'disabled' : '') + ' data-p="' + (page-1) + '">‹ Précédent</button>';
+      for (let n = 1; n <= total; n++)
+        html += '<button class="' + (n === page ? 'on' : '') + '" data-p="' + n + '">' + n + '</button>';
+      html += '<button ' + (page === total ? 'disabled' : '') + ' data-p="' + (page+1) + '">Suivant ›</button>';
+      html += '<span class="infos">Page ' + page + ' sur ' + total + ' · ' + cartes.length + ' articles</span>';
+      pagiZone.innerHTML = html;
+      pagiZone.querySelectorAll('button[data-p]').forEach(bt => bt.addEventListener('click', () => {
+        const n = +bt.dataset.p;
+        if (n < 1 || n > total) return;
+        page = n; afficher();
+        document.querySelector('.blog-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }));
+    };
+    afficher();
+  }
 }
 
 // formulaire (accueil + contact) — envoi réel via Netlify Forms

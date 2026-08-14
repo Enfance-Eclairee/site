@@ -153,6 +153,34 @@ if(fOv){
   addEventListener('keydown',e=>{if(e.key==='Escape')fHide()});
 }
 
+// pagination du blog : 10 articles par page, du plus récent au plus ancien
+const pagiZone = document.getElementById('pagiBlog');
+if (pagiZone) {
+  const cartes = [...document.querySelectorAll('.blog-grid .blog-card')];
+  const PAR_PAGE = 10, total = Math.ceil(cartes.length / PAR_PAGE);
+  if (total > 1) {
+    let page = 1;
+    const afficher = () => {
+      cartes.forEach((c, i) => {
+        c.style.display = (i >= (page-1)*PAR_PAGE && i < page*PAR_PAGE) ? '' : 'none';
+      });
+      let html = '<button ' + (page === 1 ? 'disabled' : '') + ' data-p="' + (page-1) + '">‹ Précédent</button>';
+      for (let n = 1; n <= total; n++)
+        html += '<button class="' + (n === page ? 'on' : '') + '" data-p="' + n + '">' + n + '</button>';
+      html += '<button ' + (page === total ? 'disabled' : '') + ' data-p="' + (page+1) + '">Suivant ›</button>';
+      html += '<span class="infos">Page ' + page + ' sur ' + total + ' · ' + cartes.length + ' articles</span>';
+      pagiZone.innerHTML = html;
+      pagiZone.querySelectorAll('button[data-p]').forEach(bt => bt.addEventListener('click', () => {
+        const n = +bt.dataset.p;
+        if (n < 1 || n > total) return;
+        page = n; afficher();
+        document.querySelector('.blog-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }));
+    };
+    afficher();
+  }
+}
+
 // formulaire (accueil + contact) — envoi réel via Netlify Forms
 const form=document.getElementById('contactForm');
 const fEmail=document.getElementById('fEmail');
@@ -292,6 +320,7 @@ BLOG_SECTION = f'''<section class="sect has-blobs" id="blog" style="padding-top:
     <div class="blog-grid">
 {chr(10).join(cards)}
     </div>
+    <div class="pagi" id="pagiBlog"></div>
   </div>
 </section>'''
 
