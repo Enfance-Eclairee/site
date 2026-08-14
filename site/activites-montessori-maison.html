@@ -85,7 +85,7 @@ section{position:relative}
 /* ---------- nav ---------- */
 nav{position:sticky;top:0;z-index:90;background:rgba(247,242,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(110,82,58,.12);transition:box-shadow .3s}
 nav.scrolled{box-shadow:0 10px 30px -18px rgba(74,56,38,.3)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:18px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:18px 28px}
 nav .wrap{max-width:1280px}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .crest{width:46px;height:auto;flex:none}
@@ -590,13 +590,17 @@ footer ul a:hover{color:#fff}
   .cta-band:before{background:rgba(251,248,240,.92)}
   .hero-photo img{height:440px}
   .float-card{right:6px}
-  .nav-links{position:fixed;inset:0 0 auto 0;top:0;background:var(--cream);flex-direction:column;padding:110px 40px 44px;gap:24px;transform:translateY(-100%);visibility:hidden;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s linear .45s;box-shadow:0 30px 60px -30px rgba(0,0,0,.3);z-index:-1}
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:26px 28px 34px;gap:22px;transform:translateY(-115%);visibility:hidden;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s linear .45s;box-shadow:0 26px 50px -26px rgba(74,56,38,.35);border-bottom:1px solid rgba(110,82,58,.12);z-index:-1}
   .nav-links.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s}
   .burger{display:block;z-index:5}
   .burger.open span:nth-child(1){transform:translateY(7.4px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
   .nav-cta{display:none}
+  .nav-in{padding:16px 20px;gap:14px}
+  .brand .crest{width:40px}
+  .brand-name{font-size:19px}
+  .brand-name em{font-size:9.5px;letter-spacing:1.9px;white-space:nowrap}
 }
 @media(max-width:600px){
   .sect{padding:56px 0}
