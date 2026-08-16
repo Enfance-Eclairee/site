@@ -241,6 +241,19 @@ textarea{resize:vertical;min-height:280px;line-height:1.7}
 </div>
 
 <script>
+/* Contrôle de compatibilité. Écrit volontairement en ancienne syntaxe pour
+   s'exécuter même si le navigateur est trop dépassé pour lire le script suivant. */
+window.__espaceOK = false;
+window.addEventListener("load", function () {
+  if (window.__espaceOK) return;
+  var el = document.getElementById("loginMsg");
+  if (!el) return;
+  el.className = "msg err";
+  el.textContent = "Votre navigateur est trop ancien pour cet espace. Ouvrez la page avec Google Chrome, Microsoft Edge ou Firefox à jour, puis reconnectez-vous.";
+});
+</script>
+
+<script>
 const REPO = "Enfance-Eclairee/site";
 const API  = "https://api.github.com/repos/" + REPO;
 const KEY  = "ee_token";
@@ -286,8 +299,16 @@ $("loginForm").addEventListener("submit", async e => {
     if (!r.ok) throw new Error();
     localStorage.setItem(KEY, TOKEN);
     entrer();
-  } catch {
-    show($("loginMsg"), "err", "Mot de passe incorrect. Vérifiez les majuscules et les tirets.");
+  } catch (err) {
+    let msg = "Mot de passe incorrect. Vérifiez les majuscules et les tirets.";
+    if (!window.isSecureContext || !(window.crypto && window.crypto.subtle)) {
+      msg = "La page doit être ouverte en https. Tapez exactement https://enfance-eclairee.fr/admin/ dans la barre d'adresse.";
+    } else if (err && err.name === "TypeError") {
+      msg = "Impossible de joindre le serveur. Vérifiez votre connexion internet, ou un antivirus / pare-feu qui bloquerait la page.";
+    } else if (err && err.name !== "OperationError") {
+      msg = "Un problème technique empêche la connexion (" + (err.name || "inconnu") + "). Envoyez-nous cette phrase, nous corrigeons.";
+    }
+    show($("loginMsg"), "err", msg);
     btn.disabled = false; btn.textContent = "Me connecter";
   }
 });
@@ -588,6 +609,9 @@ $("publish").addEventListener("click", async () => {
 
 // connexion automatique
 if (TOKEN) api("").then(r => { if (r.ok && !dejaEntre) entrer(); else if (!r.ok) localStorage.removeItem(KEY); }).catch(() => {});
+
+// le script a été lu jusqu'au bout : le navigateur est compatible
+window.__espaceOK = true;
 </script>
 </body>
 </html>
