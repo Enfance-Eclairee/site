@@ -279,9 +279,12 @@ const hide = el => { el.className = "msg"; el.textContent = ""; };
 const b64 = str => btoa(unescape(encodeURIComponent(str)));
 const deb64 = str => decodeURIComponent(escape(atob(str.replace(/\n/g, ""))));
 
-function api(path, opts = {}) {
-  return fetch(API + path, { ...opts,
-    headers: { "Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json", ...(opts.headers || {}) } });
+function api(path, opts) {
+  opts = opts || {};
+  var entete = Object.assign(
+    { "Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json" },
+    opts.headers || {});
+  return fetch(API + path, Object.assign({}, opts, { headers: entete }));
 }
 function slugify(s) {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "")
