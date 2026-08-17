@@ -794,10 +794,33 @@ for name, doc in pages.items():
     (OUT / name).write_text(doc)
     print(f"{name}: {len(doc)//1024} KB")
 
-# ---------- admin (Decap CMS) ----------
+# ---------- admin (espace de rédaction) ----------
 if (ROOT / "admin").exists():
     shutil.copytree(ROOT / "admin", OUT / "admin", dirs_exist_ok=True)
     print("admin/ copié dans site/admin/")
+
+    # Raccourcis : tout ce que Jacqueline peut taper mène à l'espace de rédaction.
+    # Redirection par meta refresh : comprise par absolument tous les navigateurs.
+    REDIRECTION = (
+        '<!doctype html><html lang="fr"><head><meta charset="utf-8">'
+        '<meta name="robots" content="noindex, nofollow">'
+        '<meta http-equiv="refresh" content="0; url=/admin/">'
+        '<title>Espace de rédaction</title></head><body>'
+        '<p style="font-family:sans-serif;padding:40px;text-align:center">'
+        'Ouverture de votre espace de rédaction… '
+        '<a href="/admin/">Cliquez ici si rien ne se passe</a>.</p>'
+        '<script>location.replace("/admin/")</script></body></html>'
+    )
+    # Pas de variante de casse : sur macOS « Admin » et « admin » sont le même
+    # dossier, on écraserait la vraie page.
+    for alias in ("ecrire", "espace", "redaction", "blog-admin"):
+        assert alias.lower() != "admin", "un raccourci écraserait l'espace de rédaction"
+        dossier = OUT / alias
+        dossier.mkdir(parents=True, exist_ok=True)
+        (dossier / "index.html").write_text(REDIRECTION, encoding="utf-8")
+    assert "COFFRE" in (OUT / "admin" / "index.html").read_text(encoding="utf-8"), \
+        "site/admin/index.html a été écrasé"
+    print("raccourcis vers /admin/ créés")
 print("Site généré dans", OUT)
 
 
@@ -820,5 +843,7 @@ for n in sorted(urls):
     sm.append(f"  <url><loc>{loc}</loc></url>")
 sm.append("</urlset>")
 (OUT/"sitemap.xml").write_text("\n".join(sm))
-(OUT/"robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /ecrire\nSitemap: {BASE_URL}/sitemap.xml\n")
+interdits = "".join(f"Disallow: /{a}\n" for a in
+    ("admin/", "ecrire", "espace", "redaction", "blog-admin"))
+(OUT/"robots.txt").write_text(f"User-agent: *\nAllow: /\n{interdits}Sitemap: {BASE_URL}/sitemap.xml\n")
 print("sitemap.xml + robots.txt générés")
