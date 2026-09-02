@@ -1,5 +1,5 @@
 ---
-title: "LA BOITE DE PERMANENCE"
+title: "La boite de permanence"
 description: "La permanence de l'objet est la capacité de l'enfant à comprendre qu'une personne ou un objet continue d'exister, même lorsqu'il ne le voit plus. Par exemple, lorsque vous cachez un objet sous un petit tissu, le bébé va progressivement apprendre à le chercher.Cette acquisition se développe dans les premiers mois et soutient mémoire, compréhension et confiance en lui. Un jeu simple  que sont les boîtes de permanence utilisées dans le nido et au sol. Les expériences de jeu que le bébé va faire l'aideront à comprendre le monde dans lequel il grandit."
 date: 2026-08-19
 tag: "Éveil"

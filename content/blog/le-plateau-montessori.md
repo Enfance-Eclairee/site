@@ -1,5 +1,5 @@
 ---
-title: "LE PLATEAU MONTESSORI"
+title: "Le plateau Montessori"
 description: "Un petit espace pour devenir grand, un cadre qui lui permet d'agir seul, avec un matériel soigneusement choisi."
 date: 2026-08-23
 tag: "activité"

@@ -1,5 +1,5 @@
 ---
-title: "MIROIR MONTESSORI"
+title: "Miroir Montessori"
 description: "Pourquoi un miroir montessori dans l'aménagement 'nido'?"
 date: 2026-08-21
 tag: "Éveil"

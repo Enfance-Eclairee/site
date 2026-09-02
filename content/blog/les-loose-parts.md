@@ -1,5 +1,5 @@
 ---
-title: "LES LOOSE PARTS"
+title: "Les loose parts"
 description: "Quand l'enfant devient créateur de son propre jeu."
 date: 2026-08-23
 tag: "Éveil"
