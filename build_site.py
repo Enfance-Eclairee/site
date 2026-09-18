@@ -608,6 +608,8 @@ NOTFOUND = '''<section class="sect" style="text-align:center;padding:90px 0 110p
   </div>
 </section>'''
 
+OG_IMAGE = {}  # page d'article -> sa photo de couverture
+
 def compose(page, *sections):
     title, desc = META[page]
     h = head
@@ -617,6 +619,14 @@ def compose(page, *sections):
     h = re.sub(r'(<meta property="og:description" content=")[^"]*(">)', rf"\g<1>{desc}\g<2>", h)
     canon = BASE_URL + "/" + ("" if page == "index.html" else page[:-5])
     h += f'<link rel="canonical" href="{canon}">'
+    # aperçu LinkedIn / Facebook / WhatsApp : adresse et photo de la page
+    og_img = BASE_URL + "/" + OG_IMAGE.get(page, "img/opt/hero.jpg")
+    if page in OG_IMAGE:
+        h = h.replace('<meta property="og:type" content="website">', '<meta property="og:type" content="article">')
+    h += (f'<meta property="og:url" content="{canon}">'
+          f'<meta property="og:image" content="{og_img}">'
+          '<meta property="og:site_name" content="Enfance Éclairée">'
+          '<meta name="twitter:card" content="summary_large_image">')
     h += ('<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness",'
           '"name":"Enfance Éclairée","description":"Formations et ateliers Montessori 0-6 ans pour les professionnels de la petite enfance et les familles, à Metz.",'
           '"telephone":"+33610089671","email":"jacqueline.schmitt.1965@gmail.com",'
@@ -722,6 +732,7 @@ for a in articles:
     _t_clean = re.sub("<[^>]+>", "", a["title"])
     _suffix = "" if len(_t_clean) > 45 else " · Enfance Éclairée"
     META[a["slug"] + ".html"] = (_t_clean + _suffix, a["description"])
+    OG_IMAGE[a["slug"] + ".html"] = a["image"]
     pages[a["slug"] + ".html"] = compose(a["slug"] + ".html", art_page(a), cta_ext)
 
 # ajustements par page
