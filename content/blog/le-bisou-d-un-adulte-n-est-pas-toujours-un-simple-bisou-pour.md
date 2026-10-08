@@ -8,9 +8,6 @@ image: "img/uploads/le-bisou-d-un-adulte-n-est-pas-toujours-un-simple-bisou-pour
 alt: "Un geste d'Amour !"
 ---
 <h4>Montessori
-####bébé
-####formations Montessori
-####accompagnement parental
 Le plus beau bisou est celui qu'on dépose avec douceur, sans jamais oublier de regarder ce bébé !
 Observons ses signes : il détourne la tête ? Il se raidit ? Il ferme les yeux ? il s'agite ?Il a mal ?
 Alors, le bisou est essentiel pour créer du lien et une relation. C'est un geste d'Amour, une expérience sensorielle riche et intense : une odeur, une voix, un contact, une pression sur la peau... et parfois beaucoup de stimulations à la fois ! Alors ni trop ni trop peu ! 

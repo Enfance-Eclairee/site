@@ -16,7 +16,6 @@ alt: "Se mettre dans une ambiance calme, confortable et se rendre disponible pou
 * employe un vocabulaire précis sans infantiliser le langage
 * répéter certaines histoires, car la répétition rassure et permet au tout petit d'affiner sa compréhension
 * choisir des récits précis adaptés à son niveau de développement. (et pourquoi pas créer une petite bibliothèque dans laquelle l'enfant pourra être en demande et choisir son histoire)
-#####
 Dans mon approche Montessori, je respecte l'enfant, tel qu'il est, son besoin de mouvement, son rythme et sa capacité progressive à construire son attention. Il n'est donc pas nécessaire d'exiger qu'un tout petit reste parfaitement immobile, pour qu'il soit en train d'écouter.</h4>
 <h4>Et si le tout petit décroche ?
 Un enfant qui bouge pendant une histoire n'est pas forcément un enfant qui n'écoute pas !
@@ -33,7 +32,7 @@ Comment capter l'attention sans multiplier les artifices ?
 Quelle place donner à l'imaginaire?
 Comment accompagner les enfants qui ont des difficultés de langage ou d'attention ?
 #### Une formation très concrète, destinée aux professionnels, qui souhaitent transformer le temps de l'histoire en un véritable moment de langage, de lien, d'écoute et de découverte.
-####Vous souhaitez être accompagné pour raconter des histoires avec davantage de justesse et de plaisir ?
+Vous souhaitez être accompagné pour raconter des histoires avec davantage de justesse et de plaisir ?
 Contactez-moi pour découvrir mes ateliers à Metz et les environs.
 Je serai ravie d'échanger avec vous et je me ferai un réel plaisir de vous donner les clés des apprentissages faciles.</h4>
 <h4></h4>

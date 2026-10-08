@@ -8,8 +8,6 @@ image: "img/uploads/des-petits-coussins-pour-de-grandes-decouvertes-178956199447
 alt: "Doux, lisse, texturé, souple, granuleux : l'enfant touche, presse, compare et explore à son rythme"
 ---
 <h4>Montessori
-####formations Montessori
-####activités Montessori
 Ces petits coussins sensoriels invitent l'enfant à une exploration libre, sans consigne imposée. Le geste devient précis, l'attention se pose et les sens s'éveillent naturellement.
 Un matériel simple, pensé pour offrir au tout petit et à l'enfant plus tard, une expérience riche à travers ses mains.
 Des petites mains, qui découvrent tout un monde de sensations ! Chaque texture offre une nouvelle expérience et encourage l'enfant à prendre le temps d'observer ce qu'il ressent. 

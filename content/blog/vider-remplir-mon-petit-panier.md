@@ -12,7 +12,3 @@ Cette répétition, si naturelle chez l'enfant participe à la construction de s
 Avec un matériel simple, et
  un environnement préparé, une action du quotidien peut devenir une véritable expérience d'apprentissages.
 VIDER- REMPLIR ET RECOMMENCER  3 grands verbes Montessori qui aident l'enfant à découvrir, à analyser, à réfléchir, à expérimenter.
-####Montessori
-####formations Montessori
-####ateliers Montessori
-####</h4>

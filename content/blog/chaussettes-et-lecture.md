@@ -8,9 +8,6 @@ image: "img/uploads/chaussettes-et-lecture-1789457829076.jpg"
 alt: "Différentes paires de chaussettes à associer, un premier pas vers la lecture !"
 ---
 <h4>Montessori
-####formations Montessori
-####apprendre autrement
-####apprentissages faciles
 Mettre des chaussettes par paires participe aux apprentissages qui précèdent la lecture.
 A première vue, l'enfant semble simplement chercher 2 chaussettes identiques. Mais lorsqu'elles portent des motifs, des animaux, des couleurs différents, il doit observer attentivement, comparer et repérer ce qui est identique ou différent ! Et c'est justement là que l'activité devient intéressante.
 OBSERVER avant de savoir lire ! Avant de reconnaître les lettres et les mots, l'enfant a besoin d'affiner son regard. Il apprend progressivement à remarquer : les formes - les tailles - les couleurs - les orientations - les détails - les ressemblances ou différences.

@@ -8,8 +8,6 @@ image: "img/uploads/une-pince-des-billes-un-porte-savon-le-tout-dans-un-plateau-
 alt: "L'enfant transvase les billes sur le porte- savon"
 ---
 <h4>Montessori
-####formations Montessori
-####apprendre autrement
 L'enfant prend la pince, attrape une bille, ajuste son geste et la dépose délicatement sur le porte-savons dans un sens puis dans le contenant dans l'autre sens. Puis, il recommence encore et encore...
 Et c'est justement la REPETITION qui est précieuse dans toutes les activités que je vous propose !
 Mais que développe cette activité chez mon tout petit ? 
