@@ -801,6 +801,10 @@ for name, doc in pages.items():
     # URLs propres : index.html -> ./ , page.html -> page
     doc = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: 'href="./' + (m.group(1) or '') + '"', doc)
     doc = re.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', lambda m: 'href="' + m.group(1) + (m.group(2) or '') + '"', doc)
+    # typographie française : espace insécable avant ? ! ; : et »
+    # (sinon la ponctuation peut se retrouver seule en début de ligne)
+    doc = re.sub(r'(\w|\)) +([?!;:»])', '\\1\u00a0\\2', doc)
+    doc = re.sub(r'(«) +', '«\u00a0', doc)
     assert "__IMG_" not in doc, f"placeholder restant dans {name}"
     (OUT / name).write_text(doc)
     print(f"{name}: {len(doc)//1024} KB")

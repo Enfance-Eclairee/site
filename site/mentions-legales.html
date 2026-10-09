@@ -675,7 +675,7 @@ footer ul a:hover{color:#fff}
       <path d="M100 158 C100 148 109 143 117 144 C117 154 109 159 100 158 Z" fill="#A9BFA0" stroke="#55673F" stroke-width="1.8"/>
       <!-- ground -->
       <path d="M78 186 Q100 178 122 186" stroke="#C2A277" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-      <!-- laurel hints : vert à gauche, rose à droite (comme le blason du client) -->
+      <!-- laurel hints : vert à gauche, rose à droite (comme le blason du client) -->
       <g stroke="#7C9270" stroke-width="1.8" fill="#DCE5D4">
         <path d="M52 130 q-8 -3 -9 -12 q9 1 9 12Z"/>
         <path d="M55 148 q-9 -1 -12 -10 q10 -1 12 10Z"/>
@@ -755,7 +755,7 @@ footer ul a:hover{color:#fff}
     <div style="display:grid;gap:26px;color:#5C4F3E;font-size:15.5px">
       <div>
         <h2 style="font-size:22px;margin-bottom:10px">Éditeur du site</h2>
-        <p>Enfance Éclairée · Jacqueline Schmitt, entrepreneur individuel<br>Metz, Moselle, France<br>Téléphone : 06 10 08 96 71 · Email : jacqueline.schmitt.1965@gmail.com<br>SIRET : [à compléter]<br>Directrice de la publication : Jacqueline Schmitt</p>
+        <p>Enfance Éclairée · Jacqueline Schmitt, entrepreneur individuel<br>Metz, Moselle, France<br>Téléphone : 06 10 08 96 71 · Email : jacqueline.schmitt.1965@gmail.com<br>SIRET : [à compléter]<br>Directrice de la publication : Jacqueline Schmitt</p>
       </div>
       <div>
         <h2 style="font-size:22px;margin-bottom:10px">Hébergement</h2>
@@ -767,7 +767,7 @@ footer ul a:hover{color:#fff}
       </div>
       <div>
         <h2 style="font-size:22px;margin-bottom:10px">Données personnelles</h2>
-        <p>Les informations transmises via le formulaire de contact sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni vendues à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données : il vous suffit d'écrire à jacqueline.schmitt.1965@gmail.com.</p>
+        <p>Les informations transmises via le formulaire de contact sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni vendues à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données : il vous suffit d'écrire à jacqueline.schmitt.1965@gmail.com.</p>
         <p>Ce site n'utilise pas de cookies de suivi publicitaire.</p>
       </div>
     </div>
@@ -788,7 +788,7 @@ footer ul a:hover{color:#fff}
         <svg class="crest" viewBox="0 0 200 234"><use href="#crest"/></svg>
         <p class="f-lead">Organisme de formation pour parents &amp; professionnels de la petite enfance</p>
         <p style="font-size:12.5px;color:#C9D4B8;max-width:300px;margin:-8px 0 18px">Metz · Montigny-lès-Metz · Marly · Woippy · Moulins-lès-Metz · Thionville · toute la Moselle</p>
-        <p class="f-find">Retrouvez-nous ici :</p>
+        <p class="f-find">Retrouvez-nous ici :</p>
         <div class="socials">
           <a href="https://www.facebook.com/people/Apprendre-Autrement/100089991160876/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></svg></a>
           <a href="https://www.instagram.com/apprendre.autrement.js/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -896,7 +896,7 @@ if(artOv){
   addEventListener('keydown',e=>{if(e.key==='Escape')artHide()});
 }
 
-// catalogue : fiches détaillées (page ateliers)
+// catalogue : fiches détaillées (page ateliers)
 const fOv=document.getElementById('ficheOverlay');
 if(fOv){
   const fC=document.getElementById('ficheContent');
@@ -913,7 +913,7 @@ if(fOv){
   addEventListener('keydown',e=>{if(e.key==='Escape')fHide()});
 }
 
-// pagination du blog : 10 articles par page, du plus récent au plus ancien
+// pagination du blog : 10 articles par page, du plus récent au plus ancien
 const pagiZone = document.getElementById('pagiBlog');
 if (pagiZone) {
   const cartes = [...document.querySelectorAll('.blog-grid .blog-card')];
@@ -922,12 +922,12 @@ if (pagiZone) {
     let page = 1;
     const afficher = () => {
       cartes.forEach((c, i) => {
-        c.style.display = (i >= (page-1)*PAR_PAGE && i < page*PAR_PAGE) ? '' : 'none';
+        c.style.display = (i >= (page-1)*PAR_PAGE && i < page*PAR_PAGE) ? '' : 'none';
       });
-      let html = '<button ' + (page === 1 ? 'disabled' : '') + ' data-p="' + (page-1) + '">‹ Précédent</button>';
+      let html = '<button ' + (page === 1 ? 'disabled' : '') + ' data-p="' + (page-1) + '">‹ Précédent</button>';
       for (let n = 1; n <= total; n++)
-        html += '<button class="' + (n === page ? 'on' : '') + '" data-p="' + n + '">' + n + '</button>';
-      html += '<button ' + (page === total ? 'disabled' : '') + ' data-p="' + (page+1) + '">Suivant ›</button>';
+        html += '<button class="' + (n === page ? 'on' : '') + '" data-p="' + n + '">' + n + '</button>';
+      html += '<button ' + (page === total ? 'disabled' : '') + ' data-p="' + (page+1) + '">Suivant ›</button>';
       html += '<span class="infos">Page ' + page + ' sur ' + total + ' · ' + cartes.length + ' articles</span>';
       pagiZone.innerHTML = html;
       pagiZone.querySelectorAll('button[data-p]').forEach(bt => bt.addEventListener('click', () => {
