@@ -16,7 +16,7 @@ alt: "Sur cette photo l'enfant expérimente les différentes pièces du puzzle M
 <h4>Que faire si mon enfant rencontre des difficultés ?</h4>
 <p>Un enfant qui tourne plusieurs fois une pièce ou qui ne trouve pas son emplacement n'est pas nécessairement en difficulté. Il est en train d'explorer. Si le puzzle est trop complexe, choisissez alors un modèle avec moins de pièces, des formes faciles et des poignées de préhension pour débuter, cela rend l'apprentissage plus facile et donc l'encastrement.<br>L'objectif n'est pas d'aller vite, mais de permettre à l'enfant de réussir progressivement par lui-même.</p>
 <p>Le puzzle est donc un support d'éveil très intéressant pour développer la motricité fine, l'observation, la coordination oeil-main et la résolution de problèmes. Et il a l'avantage d'être présenté même aux bébés dès qu'il commence à ramper. Nous avons des puzzles prévus pour les tout petits en images au réel et des poignées de préhension. Mais, l'essentiel, pour ma part , est la posture de l'Adulte : préparer, présenter, observer et laisser faire.</p>
-<p>Chez Enfance éclairée, j'accompagne les parents, les professionnels de la petite enfance pour proposer des activités adaptées aux besoins de chaque enfant.
-</p>
+<p>Chez Enfance éclairée, j'accompagne les parents, les professionnels de la petite enfance pour proposer des activités adaptées aux besoins de chaque enfant.</p>
+
 <h4>Envie d'aller plus loin ?</h4>
 <p> Vous voulez découvrir comment choisir et présenter du matériel adapté aux enfants de 0 à 6 ans ? Je vous invite à découvrir mes ateliers et formations Montessori d'Enfance éclairée à Metz destinés aux parents, aux professionnels de la petite enfance. De nombreux ateliers et formations ludiques vous attendent, rejoignez-moi.</p> 

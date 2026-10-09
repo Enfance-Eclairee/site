@@ -570,7 +570,25 @@ $("publish").addEventListener("click", async () => {
     const html = body.split(/\n\s*\n/).map(p => {
       p = p.trim();
       if (!p) return "";
-      if (p.indexOf("####") === 0) return "<h4>" + p.replace(/^#+\s*/, "") + "</h4>";
+      // un bloc peut contenir un sous-titre (ligne commençant par ####) suivi de texte,
+      // ou plusieurs sous-titres : on découpe ligne par ligne au lieu de tout mettre en titre
+      if (/(^|\n)\s*#{2,}/.test(p)) {
+        const morceaux = [];
+        let tampon = [];
+        const viderTampon = () => {
+          if (tampon.length) { morceaux.push("<p>" + tampon.join("<br>") + "</p>"); tampon = []; }
+        };
+        for (const ligne of p.split("\n")) {
+          const l = ligne.trim();
+          if (/^#{2,}/.test(l)) {
+            viderTampon();
+            const titre = l.replace(/^#+\s*/, "").trim();
+            if (titre) morceaux.push("<h4>" + titre + "</h4>");
+          } else if (l) { tampon.push(l); }
+        }
+        viderTampon();
+        return morceaux.join("\n");
+      }
       for (const ph of inlinePhotos) if (ph.marker === p)
         return '<figure class="art-img"><img src="' + ph.path + '" alt="' + (($("alt").value.trim() || title).replace(/"/g, "'")) + '"></figure>';
       const bs = p.match(/^\[(?:encadré|photo enregistrée) (\d+)\]$/);

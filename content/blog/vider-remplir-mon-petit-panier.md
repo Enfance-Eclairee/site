@@ -7,7 +7,7 @@ couleur: "sauge"
 image: "img/uploads/vider-remplir-mon-petit-panier-1788898531341.jpg"
 alt: "Bébé vide et remplit son petit panier"
 ---
-<h4>Pourtant derrière ce geste de vider et remplir, se cachent de nombreuses découvertes: saisir, transporter, déposer, coordonner son geste, observer le résultat… puis recommencer.
+<h4>Pourtant derrière ce geste de vider et remplir, se cachent de nombreuses découvertes: saisir, transporter, déposer, coordonner son geste, observer le résultat… puis recommencer.</h4>
 Cette répétition, si naturelle chez l'enfant participe à la construction de ses compétences et de son autonomie.
 Avec un matériel simple, et
  un environnement préparé, une action du quotidien peut devenir une véritable expérience d'apprentissages.

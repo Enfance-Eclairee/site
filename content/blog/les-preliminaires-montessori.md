@@ -7,7 +7,7 @@ couleur: "sauge"
 image: "img/uploads/les-preliminaires-montessori-1789008136906.jpg"
 alt: "L'enfant qui porte son plateau afin de réaliser son activité en toute sérénité"
 ---
-<h4>Montessori
+<h4>Montessori</h4>
 Je vous parle aujourd'hui des préliminaires Montessori
 Toutes les activités que l'on peut mettre en place bien avant les autres et qui plaisent énormément aux enfants. En pédagogie Montessori, les préliminaires sont des activités simples qui préparent l'enfant à une compétence future, en développant progressivement son autonomie, sa concentration et sa coordination. Voici quelques préliminaires, bien présentés par l'adulte, l'enfant reproduira ensuite.
 *Porter, transporter un plateau (afin que l'enfant puisse travailler sur son aire, à une table)
@@ -19,4 +19,4 @@ C'est peut être banal, mais ces activités sont tellement riches et développen
 - coordination oeil/main 
 - concentration
 - confiance en soi 
-- et autonomie.</h4>
+- et autonomie.

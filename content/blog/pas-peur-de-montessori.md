@@ -20,7 +20,7 @@ On entend souvent : « c'est compliqué »… « il faut du matériel, il faut a
 <li>C'est une méthode trop stricte…</li>
 <li>J'ai peur…</li>
 </ul>
-<p style="margin:12px 0 0;font-weight:700;color:var(--marron-deep)">En fait, ce n'est rien de tout cela ! Jacqueline, éducatrice Montessori depuis 10 ans, vous affirme le contraire.</p>
+<p style="margin:12px 0 0;font-weight:700;color:var(--marron-deep)">En fait, ce n'est rien de tout cela ! Jacqueline, éducatrice Montessori depuis 10 ans, vous affirme le contraire.
 </div>
 
 #### Et si on changeait de regard ?
@@ -60,7 +60,7 @@ L'adulte est présent, dans un cadre rassurant, dans lequel l'enfant fait des ch
 <li>Laisser le temps d'essayer</li>
 <li>Respecter son rythme</li>
 </ul>
-<p style="margin:12px 0 0;font-weight:700;color:var(--marron-deep)">Pas besoin d'avoir peur ! Commencez par un petit pas. Votre enfant n'a pas besoin d'un parent parfait, mais d'un adulte qui lui fait confiance.</p>
+<p style="margin:12px 0 0;font-weight:700;color:var(--marron-deep)">Pas besoin d'avoir peur ! Commencez par un petit pas. Votre enfant n'a pas besoin d'un parent parfait, mais d'un adulte qui lui fait confiance.
 </div>
 
 Envie d'aller plus loin ? Les ateliers et formations Enfance Éclairée vous donnent toutes les clés, à votre rythme, les mercredis et samedis à Metz.
